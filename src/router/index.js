@@ -178,7 +178,15 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "datatable" */ "../views/DataTable.vue"),
   },
-
+  {
+    path: "/upload-dropzone",
+    name: "UploadDropzoe",
+    // route level code-splitting
+    // this generates a separate chunk (upload-dropzoe.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "upload-dropzoe" */ "../views/UploadDropzone.vue"),
+  },
 ];
 
 const router = createRouter({
