@@ -174,39 +174,26 @@
       </v-col>
     </v-row>
   </v-card>
-  <v-card flat class="pa-0 comment-input-container">
-    <div class="d-flex align-center">
-      <v-avatar size="52" class="ml-6">
+  <v-card flat class="pa-0 mt-4 comment-input-container">
+    <div class="d-flex">
+      <v-avatar size="52" class="ml-6 align-self-start">
         <v-img :src="require('@/assets/profile-image.jpg')" alt="User Profile"></v-img>
       </v-avatar>
       
-      <v-text-field
-        v-model="comment"
-        placeholder="Add a new comment..."
-        density="comfortable"
-        outlined
-        hide-details
-        class="flex-grow-1 mx-4"
-      ></v-text-field>
+      <v-text-field v-model="comment" placeholder="Add a new comment..."  outlined
+        class="flex-grow-1 mx-4"></v-text-field>
       
-      <v-btn
-        icon
-        variant="text"
-        class="mr-2"
-        @click="handleAttach"
-      >
+      <v-btn icon variant="text" class="mr-2" @click="handleAttach">
         <v-icon>mdi-paperclip</v-icon>
       </v-btn>
       
       <v-btn
         color="deep-purple"
         class="white--text mr-6"
-        @click="sendComment"
-      >
-        Send
-      </v-btn>
+        @click="sendComment">Send</v-btn>
     </div>
     <input
+    label="Att"
       type="file"
       ref="fileInput"
       style="display: none"
