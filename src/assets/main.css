@@ -1,3 +1,202 @@
+.elevation-1 {
+  box-shadow: 0px 0px 0px 0px transparent,
+   0px 0px 0px 0px transparent, 0px 0px 0px 0px transparent !important;
+}
+.des-color{
+color:#84818A;
+}
+.bg-des{
+  background-color: #fcfcfc !important;
+}
+.title-des{
+  font-size: 20px !important;
+  color:#2E2C34;
+}
+  /*start ticket system dashboard  */
+.bg-content{
+  background-color: #f9f9f9;
+}
+.title-dashboard{
+padding: 20px 24px 19px 0px !important;
+}
+.v-field__input{
+  padding-block: 0px !important;
+  height: 36px !important;
+   font-size: 13px !important;
+} 
+.v-field__input {
+  padding-block: 0px !important;
+  height: 36px !important;
+  font-size: 13px !important;
+}
+
+.search-field {
+  border-radius: 7px;
+  border: 1px solid #EFF1F4;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.main-title{
+font-weight: 500 !important;
+font-size: 24px !important;
+color: #101828 !important;
+padding: 0 !important;
+}
+.v-field__input {
+  padding-block: 0 !important;
+  height: 28px !important;
+  font-size: 12px !important;
+}
+.search-field :deep(.v-field__field) {
+  height: 48px !important;
+}
+
+.search-field :deep(.v-field) {
+  min-height: 28px !important;
+}
+.search-field :deep(.v-input__prepend) {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.search-field :deep(.v-label) {
+  font-size: 12px !important;
+}
+.btn-filter {
+  height: 40px;
+  width: 93px;
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #344054;
+  margin-block: 4px;
+  border: 1px solid #EFEFEF !important;
+}
+.chips-num {
+  width: 31px;
+  height: 22px;
+  background-color: #F9F5FF;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--pressed-purple)
+}
+.ticket-text {
+  font-weight: 600;
+  color: #2E2C34;
+}
+.details-text {
+  color: #84818A;
+  font-size: 14px;
+  font-weight: 500;
+}
+.card-text-dashbord {
+  color: #84818A;
+  font-size: 14px
+}
+.card-message-dashbord {
+  color: #474649;
+  font-size: 20px;
+}
+.chip-service {
+  height: 20px;
+  background-color: #ECECEC;
+  border: 1px solis#9E9E9E;
+  font-size: 12px;
+  font-weight: 500;
+  color: #202020;
+}
+.border-left::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0px;
+  width: 11px;
+  height: 100%;
+  background-color: var(--main-danger);
+  border-radius: 4px;
+}
+.border-error::before {
+  background-color: var(--main-danger);
+}
+.border-warning::before {
+  background-color: var(--main-warning);
+}
+.border-info::before {
+  background-color: #000CE9;
+}
+.message-db {
+  font-weight: 500;
+  font-size: 20px;
+  color: #424242;
+}
+.message-db-details {
+  font-size: 16px;
+  color: var(--light-gray-700);
+}
+.icon-danger-error {
+  color: var(--main-danger);
+}
+.text-danger-error {
+  background-color: var(--danger-secondary);
+  color: var(--main-danger);
+}
+.icon-warning-error {
+  color: var(--main-warning);
+}
+
+.text-warning-error {
+  background-color: var(--warning-secondary);
+  color: var(--main-warning);
+
+}
+
+.text-success-accept {
+  background-color: var(--success-secondary);
+  color: var(--main-success);
+}
+
+.text-medium-emphasis {
+  opacity: 0.7;
+}
+
+.ticket-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 8px !important;
+  height: 100%;
+}
+
+.ticket-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.title-text {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.desc-text {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.ticket-carousel {
+  box-shadow: none !important;
+}
+
+/* لتعطيل الحركة التلقائية */
+.v-carousel {
+  transition: none !important;
+}
+
+.v-carousel__controls {
+  background: transparent !important;
+  color: transparent !important;
+  display: none !important;
+}
+
 /* start tags  */
 .chips{
     border-radius: 50px !important;
@@ -45,6 +244,7 @@
         color: var(--main-warning) !important;
         background-color: var( --warning-secondary) !important;
     }
+    /*end ticket system dashboard  */
 /* end tags  */
 /* start buttons */
 .btn-md{

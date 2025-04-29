@@ -8,18 +8,6 @@
     <v-app-bar app clipped-left color="white" elevation="1">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
     <BreadCrumb/>
-
-      <!-- <v-text-field solo flat hide-details prepend-inner-icon="mdi-magnify" placeholder="Search anything here"
-        class="mx-4"></v-text-field>
-
-      <v-spacer></v-spacer>
-
-      <v-btn icon>
-        <v-icon>mdi-cog</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>mdi-bell</v-icon>
-      </v-btn> -->
     </v-app-bar>
 
     <v-main>

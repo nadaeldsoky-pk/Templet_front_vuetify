@@ -187,6 +187,33 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "upload-dropzoe" */ "../views/UploadDropzone.vue"),
   },
+  {
+    path: "/ticket-System-Dashboard",
+    name: "TicketSystemDashboard",
+    // route level code-splitting
+    // this generates a separate chunk (upload-dropzoe.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "upload-dropzoe" */ "../views/TicketSystemDashboard.vue"),
+  },
+  {
+    path: "/ticket-details",
+    name: "TicketDetails",
+    // route level code-splitting
+    // this generates a separate chunk (ticket-details.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "ticket-details" */ "../views/TicketDetails.vue"),
+  },
+  {
+    path: "/ticket-system-create",
+    name: "Ticket System Create",
+    // route level code-splitting
+    // this generates a separate chunk (ticket-system-create.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "ticket-system-create" */ "../views/TicketSystemCreate.vue"),
+  },
 ];
 
 const router = createRouter({

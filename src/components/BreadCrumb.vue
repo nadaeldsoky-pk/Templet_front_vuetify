@@ -1,5 +1,5 @@
 <template>
-    <v-app>
+    <v-app class="bread-crumb" elevation="0">
       <!-- <v-app-bar app clipped-left color="white" elevation="1"> -->
         <v-container class="d-flex align-center py-0">
           <!-- icon drawer -->
@@ -154,5 +154,10 @@
   color: #0000001A !important;
   opacity: 1 !important;
 }
+.elevation-1 {
+    box-shadow: 0px 0px 0px 0px transparent,
+     0px 0px 0px 0px transparent, 0px 0px 0px 0px transparent !important;
+}
+
   </style>
   

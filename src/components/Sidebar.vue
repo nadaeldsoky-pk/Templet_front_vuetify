@@ -1,5 +1,6 @@
 <template>
-    <v-navigation-drawer :model-value="drawer"  :rail="true"
+    <!-- :rail="true" -->
+    <v-navigation-drawer :model-value="drawer"  
     :expand-on-hover="true" @update:model-value="$emit('update:drawer', $event)" app clipped width="280">
         <div class="pa-4">
             <v-img :src="logo" max-width="150" max-height="100" contain></v-img>
