@@ -1,19 +1,17 @@
 <template >
 <v-app class="bg-content">
-  <v-card class="d-flex justify-space-between align-center title-dashboard ml-2 mt-2 px-4"  elevation="0">
-  <v-card-title class="main-title pa-0">Ticketing System Home</v-card-title>
-  <v-text-field 
-    v-model="search" 
-    prepend-inner-icon="mdi-magnify"
-    label="Search by name, department, issue ID or any related keywords"
-    single-line 
-    hide-details 
-    outlined 
-    dense
-    class="search-field"
-    style="max-width: 450px;"
-  ></v-text-field>
-</v-card>
+<div class="d-flex justify-space-between align-center my-6 py-2 title-system-create">
+        <h2 class="main-title" >Ticketing System Home</h2>
+        <v-text-field
+          density="compact"
+          variant="outlined"
+          placeholder="Search by name, department, issue ID or any related keywords"
+          prepend-inner-icon="mdi-magnify"
+          hide-details
+          class="search-field"
+          style="max-width: 400px;"
+        ></v-text-field>
+      </div>
   <v-card class="mt-4">
 
     <h2 class="mb-6 ml-2">Add New Ticket</h2>

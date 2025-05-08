@@ -56,7 +56,7 @@
       
     </v-container>
   </template>
-  <style>
+  <style scoped>
   /* start input */
   .label-inputs{
   color: var(--gray-800);

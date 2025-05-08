@@ -10,7 +10,11 @@ font-size: 12px !important;
 line-height:18px !important;">{{ currentTabData.length }}</v-chip>
       <v-spacer></v-spacer>
       <v-btn class="mr-2 btn-export " outlined elevation="0">
-        <v-icon>mdi-export</v-icon>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <path d="M8.08146 10.2908L8.08146 2.26343" stroke="#0E2354" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M10.0254 8.33896L8.08139 10.291L6.13739 8.33896" stroke="#0E2354" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M11.5061 5.00024H12.2121C13.7521 5.00024 15 6.21235 15 7.70892L15 11.2989C15 12.7911 13.7551 14.0002 12.2189 14.0002L3.78865 14.0002C2.24865 14.0002 1 12.7874 1 11.2916L1 7.70083C1 6.20941 2.24562 5.00024 3.78108 5.00024H4.49395" stroke="#0E2354" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
         Export
       </v-btn>
       <v-btn class="add-btn"dark>
@@ -26,9 +30,9 @@ line-height:18px !important;">{{ currentTabData.length }}</v-chip>
     </v-tabs>
    </v-container>
 
-    <v-card-text>
-      <v-container class="search-container">
-        <v-row align="center" justify="center">
+    <v-card-text class="pa-2">
+
+        <v-row align="center" justify="center mb-2">
           <v-text-field
             v-model="search"
             density="compact"
@@ -39,22 +43,31 @@ line-height:18px !important;">{{ currentTabData.length }}</v-chip>
             class="search-field"
           >
             <template v-slot:append-inner>
-  <v-btn variant="text" class="filter-btn " style=" text-transform: capitalize !important; border: solid 1px #EAECF0 ; height: 30px;">
-                <v-icon>mdi-filter-variant</v-icon> Filter
+  <v-btn variant="text" class="filter-btn text-capitalize text-black " style=" border: solid 1px #EAECF0 ; height: 30px;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+  <path d="M5 10H15M2.5 5H17.5M7.5 15H12.5" stroke="#344054" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Filter
               </v-btn>
               <span class="red-dot"></span>
               <v-btn icon class="icon-btn custom-icon" style="background-color: #efefef !important;"  elevation="0">
-                <v-icon>mdi-view-list</v-icon>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+  <path d="M9 17.5H19M9 12.5H19M9 7.5H19M5.00195 17.5V17.502L5 17.502V17.5H5.00195ZM5.00195 12.5V12.502L5 12.502V12.5H5.00195ZM5.00195 7.5V7.502L5 7.50195V7.5H5.00195Z" stroke="#0E0E0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
               </v-btn>
               <v-btn icon class="icon-btn custom-icon"  elevation="0">
-                <v-icon class="outlined-icon">mdi-view-grid</v-icon>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+  <path d="M18.3333 7.60002V3.81669C18.3333 2.64169 17.8 2.16669 16.475 2.16669H13.1083C11.7833 2.16669 11.25 2.64169 11.25 3.81669V7.59169C11.25 8.77502 11.7833 9.24169 13.1083 9.24169H16.475C17.8 9.25002 18.3333 8.77502 18.3333 7.60002Z" stroke="#858585" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M18.3333 16.975V13.6083C18.3333 12.2833 17.8 11.75 16.475 11.75H13.1083C11.7833 11.75 11.25 12.2833 11.25 13.6083V16.975C11.25 18.3 11.7833 18.8333 13.1083 18.8333H16.475C17.8 18.8333 18.3333 18.3 18.3333 16.975Z" stroke="#858585" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M8.75008 7.60002V3.81669C8.75008 2.64169 8.21675 2.16669 6.89175 2.16669H3.52508C2.20008 2.16669 1.66675 2.64169 1.66675 3.81669V7.59169C1.66675 8.77502 2.20008 9.24169 3.52508 9.24169H6.89175C8.21675 9.25002 8.75008 8.77502 8.75008 7.60002Z" stroke="#858585" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M8.75008 16.975V13.6083C8.75008 12.2833 8.21675 11.75 6.89175 11.75H3.52508C2.20008 11.75 1.66675 12.2833 1.66675 13.6083V16.975C1.66675 18.3 2.20008 18.8333 3.52508 18.8333H6.89175C8.21675 18.8333 8.75008 18.3 8.75008 16.975Z" stroke="#858585" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
               </v-btn>
             </template>
           </v-text-field>
         </v-row>
-      </v-container>
+   
 
-      <div class="employees">
+      <div class="employees ">
         <!-- Tab 1: All Employees -->
         <div v-if="activeTab === 0" class="employee-table">
           <!-- Table Header -->
@@ -697,6 +710,7 @@ height: 20px;
 }
 
 .header-cell {
+  text-align: start !important;
   font-size: 12px;
   font-weight: 500;
   color: #667085;
@@ -960,5 +974,7 @@ height: 20px;
   color: white; 
   -webkit-text-stroke: 1px black; 
 }
-
+.v-tab {
+    padding: 10px 0 !important;
+}
 </style>

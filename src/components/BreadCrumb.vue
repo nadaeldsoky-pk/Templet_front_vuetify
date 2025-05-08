@@ -1,21 +1,6 @@
 <template>
     <v-app class="bread-crumb" elevation="0">
-      <!-- <v-app-bar app clipped-left color="white" elevation="1"> -->
         <v-container class="d-flex align-center py-0">
-          <!-- icon drawer -->
-          <!-- <v-app-bar-nav-icon @click="$emit('update:drawer', !drawer)" /> -->
-
-          
-          <!-- Star icon -->
-          <v-btn
-            icon
-            variant="text"
-            size="small"
-            class="mr-3"
-          >
-            <v-icon>mdi-star-outline</v-icon>
-          </v-btn>
-          
           <!-- Breadcrumbs text -->
          <v-breadcrumbs :items="items">
             <template v-slot:prepend>
@@ -39,24 +24,7 @@
   </template>
 </v-text-field>
           
-          <!-- Right icons -->
-          <v-btn
-            icon
-            variant="text"
-            size="small"
-            class="mr-2"
-          >
-            <v-icon>mdi-brightness-6</v-icon>
-          </v-btn>
-          
-          <v-btn
-            icon
-            variant="text"
-            size="small"
-            class="mr-2"
-          >
-            <v-icon>mdi-history</v-icon>
-          </v-btn>
+       
           
           <v-btn
             icon

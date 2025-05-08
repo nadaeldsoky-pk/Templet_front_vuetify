@@ -1,7 +1,7 @@
 <template>
   <v-app class="bg-content">
       <div class="d-flex justify-space-between align-center my-6 py-2 title-system-create">
-        <h2 class="text-h5 font-weight-medium">Add New Ticket</h2>
+        <h2 class="main-title" >Add New Ticket</h2>
         <v-text-field
           density="compact"
           variant="outlined"
@@ -13,34 +13,21 @@
         ></v-text-field>
       </div>
       <!-- Category -->
-       <div class="title-system-create mb-4 py-5">
+       <div class="title-system-create mb-4 py-6">
        <h3 class="font-weight-bold mb-4 my-2">Select Category</h3>
-        <v-row >
+        <div class="d-flex ga-2">
        <!-- IT Tab - Active -->
-       <v-col cols="2">
-         <v-card 
-           height="90" 
-           class="d-flex align-center justify-center rounded-lg" 
-           color="#6E3894" 
-           dark
-         >
-           <div class="text-center">
-             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="27" viewBox="0 0 24 27" fill="none">
+         <v-card height="98" class="custom-width d-flex flex-column  align-center justify-center rounded-lg" color="#6E3894" dark >
+        <div class="box-icon-active d-flex justify-center align-center rounded">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="27" viewBox="0 0 24 27" fill="none">
  <path d="M13.8786 9.00863L11.712 18.7586C11.6578 19.0078 11.4303 19.1811 11.1811 19.1811C11.1378 19.1811 11.1053 19.1811 11.062 19.1703C10.7695 19.1053 10.5853 18.8128 10.6503 18.5203L12.817 8.7703C12.882 8.4778 13.1745 8.29363 13.467 8.35863C13.7595 8.42363 13.9436 8.71613 13.8786 9.00863ZM8.92781 11.5111C9.14448 11.2945 9.14448 10.9586 8.92781 10.742C8.71115 10.5253 8.37531 10.5253 8.15865 10.742L6.23031 12.6703C5.60198 13.2986 5.60198 14.317 6.23031 14.9453L8.10448 16.8195C8.21281 16.9278 8.35365 16.982 8.48365 16.982C8.61365 16.982 8.76531 16.9278 8.86281 16.8195C9.07948 16.6028 9.07948 16.267 8.86281 16.0503L6.98865 14.1761C6.78281 13.9703 6.78281 13.6345 6.98865 13.4286L8.91698 11.5003L8.92781 11.5111ZM16.3703 10.742C16.1536 10.5253 15.8178 10.5253 15.6011 10.742C15.3845 10.9586 15.3845 11.2945 15.6011 11.5111L17.5295 13.4395C17.7353 13.6453 17.7353 13.9811 17.5295 14.187L15.6553 16.0611C15.4386 16.2778 15.4386 16.6136 15.6553 16.8303C15.7636 16.9386 15.9045 16.9928 16.0345 16.9928C16.1645 16.9928 16.3161 16.9386 16.4136 16.8303L18.2878 14.9561C18.9161 14.3278 18.9161 13.3095 18.2878 12.6811L16.3595 10.7528L16.3703 10.742ZM23.3578 20.557C22.9028 21.2936 22.1878 21.8136 21.3428 22.0195C20.4978 22.2253 19.6311 22.0845 18.8836 21.6295L18.407 21.337C17.5403 22.0411 16.5653 22.5828 15.5145 22.962V23.5145C15.5145 25.302 14.052 26.7645 12.2645 26.7645C10.477 26.7645 9.01448 25.302 9.01448 23.5145V22.962C7.96365 22.5936 6.98865 22.052 6.12198 21.337L5.64531 21.6295C4.90865 22.0845 4.03115 22.2253 3.18615 22.0195C2.34115 21.8136 1.62615 21.2936 1.17115 20.557C0.23948 19.0295 0.716147 17.0253 2.24365 16.0828L2.72031 15.7903C2.57948 15.1295 2.50365 14.447 2.50365 13.7536C2.50365 13.0603 2.57948 12.3886 2.72031 11.717L2.24365 11.4245C0.716147 10.4928 0.23948 8.48863 1.17115 6.9503C1.62615 6.21363 2.34115 5.69363 3.18615 5.4878C4.03115 5.28196 4.89781 5.4228 5.64531 5.8778L6.12198 6.1703C6.98865 5.46613 7.96365 4.92446 9.01448 4.5453V3.9928C9.01448 2.2053 10.477 0.742798 12.2645 0.742798C14.052 0.742798 15.5145 2.2053 15.5145 3.9928V4.5453C16.5653 4.91363 17.5403 5.4553 18.407 6.1703L18.8836 5.8778C19.6203 5.4228 20.4978 5.2928 21.3428 5.4878C22.1878 5.69363 22.9028 6.21363 23.3578 6.9503C24.2895 8.4778 23.8128 10.482 22.2853 11.4245L21.8086 11.717C21.9495 12.3778 22.0253 13.0603 22.0253 13.7536C22.0253 14.447 21.9495 15.1186 21.8086 15.7903L22.2853 16.0828C23.8128 17.0145 24.2895 19.0186 23.3578 20.557ZM21.722 17.0145L20.9095 16.5161C20.7036 16.397 20.6061 16.1478 20.6711 15.9203C20.8553 15.2161 20.942 14.4903 20.942 13.7645C20.942 13.0386 20.8553 12.3128 20.6711 11.6086C20.617 11.3811 20.7145 11.132 20.9095 11.0128L21.722 10.5145C22.7403 9.88613 23.0653 8.55363 22.437 7.5353C21.8086 6.51696 20.4761 6.19197 19.4578 6.8203L18.6453 7.31863C18.4395 7.4378 18.1795 7.41613 18.0061 7.26446C17.0745 6.44113 16.002 5.8453 14.8211 5.47696C14.5936 5.41196 14.442 5.1953 14.442 4.95696V4.01446C14.442 2.8228 13.467 1.8478 12.2753 1.8478C11.0836 1.8478 10.1086 2.8228 10.1086 4.01446V4.95696C10.1086 5.1953 9.95698 5.40113 9.72948 5.47696C8.54865 5.83446 7.47615 6.44113 6.54448 7.26446C6.37115 7.42696 6.11115 7.44863 5.90531 7.31863L5.09281 6.8203C4.07448 6.19197 2.74198 6.51696 2.11365 7.5353C1.48531 8.55363 1.81031 9.88613 2.82865 10.5145L3.64115 11.0128C3.84698 11.132 3.94448 11.3811 3.87948 11.6086C3.69531 12.3128 3.60865 13.0386 3.60865 13.7645C3.60865 14.4903 3.69531 15.2161 3.87948 15.9203C3.93365 16.1478 3.83615 16.397 3.64115 16.5161L2.82865 17.0145C1.81031 17.6428 1.48531 18.9753 2.11365 19.9936C2.74198 21.012 4.07448 21.337 5.09281 20.7086L5.90531 20.2103C5.99198 20.1561 6.08948 20.1345 6.18698 20.1345C6.31698 20.1345 6.44698 20.1778 6.54448 20.2645C7.47615 21.0878 8.54865 21.6836 9.72948 22.052C9.95698 22.117 10.1086 22.3336 10.1086 22.572V23.5145C10.1086 24.7061 11.0836 25.6811 12.2753 25.6811C13.467 25.6811 14.442 24.7061 14.442 23.5145V22.572C14.442 22.3336 14.5936 22.1278 14.8211 22.052C16.002 21.6945 17.0745 21.0878 18.0061 20.2645C18.1903 20.102 18.4503 20.0803 18.6453 20.2103L19.4578 20.7086C20.4761 21.337 21.8086 21.012 22.437 19.9936C23.0653 18.9753 22.7403 17.6428 21.722 17.0145Z" fill="white"/>
 </svg>
-             <div class="text-body-2 font-weight-medium">IT</div>
-           </div>
+        </div>
+             <div class="text-body-2 mt-2 font-weight-medium">IT</div>
          </v-card>
-       </v-col>
-       
        <!-- Human Resource Tab -->
-       <v-col cols="2">
-         <v-card 
-           height="90" 
-           class="d-flex align-center justify-center rounded-lg" 
-           color="#F5F5F5"
-         >
-           <div class="text-center">
+         <v-card  height="98"  class="custom-width d-flex flex-column  align-center justify-center rounded-lg" color="#F5F5F5">
+         <div class="box-icon d-flex justify-center align-center rounded">
              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="27" viewBox="0 0 26 27" fill="none">
  <g clip-path="url(#clip0_937_1265)">
    <path d="M21.6668 0.235474H10.2918C9.9928 0.235474 9.75014 0.47814 9.75014 0.77714C9.75014 1.07614 9.9928 1.31881 10.2918 1.31881H21.6668C23.4586 1.31881 24.9168 2.77697 24.9168 4.56881V11.0688C24.9168 12.8606 23.4586 14.3188 21.6668 14.3188V13.2355C21.6668 12.6375 21.1804 12.1521 20.5835 12.1521H17.3335C16.7366 12.1521 16.2501 12.6375 16.2501 13.2355V14.3188H10.2918C9.9928 14.3188 9.75014 14.5615 9.75014 14.8605C9.75014 15.1595 9.9928 15.4021 10.2918 15.4021H21.6668C24.0566 15.4021 26.0001 13.4586 26.0001 11.0688V4.56881C26.0001 2.17897 24.0566 0.235474 21.6668 0.235474ZM17.3335 13.2355H20.5835V14.3188H17.3335V13.2355ZM4.87514 5.65214C6.36797 5.65214 7.58347 4.43772 7.58347 2.94381C7.58347 1.44989 6.36797 0.235474 4.87514 0.235474C3.3823 0.235474 2.1668 1.44989 2.1668 2.94381C2.1668 4.43772 3.3823 5.65214 4.87514 5.65214ZM4.87514 1.31881C5.77105 1.31881 6.50014 2.04789 6.50014 2.94381C6.50014 3.83972 5.77105 4.56881 4.87514 4.56881C3.97922 4.56881 3.25014 3.83972 3.25014 2.94381C3.25014 2.04789 3.97922 1.31881 4.87514 1.31881ZM7.58347 7.81881V14.8605C7.58347 15.1595 7.34081 15.4021 7.0418 15.4021C6.74281 15.4021 6.50014 15.1595 6.50014 14.8605V7.81881H3.7918C2.29897 7.81881 1.08347 9.03322 1.08347 10.5271V14.8605C1.08347 15.1595 0.840804 15.4021 0.541804 15.4021C0.242804 15.4021 0.000137706 15.1595 0.000137706 14.8605V10.5271C0.000137706 8.43631 1.70097 6.73547 3.7918 6.73547H15.7085C16.0075 6.73547 16.2501 6.97814 16.2501 7.27714C16.2501 7.57614 16.0075 7.81881 15.7085 7.81881H7.58347ZM2.1668 19.7355C2.1668 18.8385 2.89589 18.1105 3.7918 18.1105C4.68772 18.1105 5.4168 18.8385 5.4168 19.7355C5.4168 20.6325 4.68772 21.3605 3.7918 21.3605C2.89589 21.3605 2.1668 20.6325 2.1668 19.7355ZM11.3751 19.7355C11.3751 18.8385 12.1042 18.1105 13.0001 18.1105C13.8961 18.1105 14.6251 18.8385 14.6251 19.7355C14.6251 20.6325 13.8961 21.3605 13.0001 21.3605C12.1042 21.3605 11.3751 20.6325 11.3751 19.7355ZM20.5835 19.7355C20.5835 18.8385 21.3126 18.1105 22.2085 18.1105C23.1044 18.1105 23.8335 18.8385 23.8335 19.7355C23.8335 20.6325 23.1044 21.3605 22.2085 21.3605C21.3126 21.3605 20.5835 20.6325 20.5835 19.7355ZM16.7571 25.5021C16.8633 25.7816 16.7225 26.0946 16.4419 26.2008C16.378 26.2236 16.3141 26.2355 16.2501 26.2355C16.0313 26.2355 15.8255 26.1022 15.7431 25.8856C15.3315 24.799 14.2297 24.0688 13.0001 24.0688C11.7706 24.0688 10.6688 24.799 10.2571 25.8856C10.1499 26.1661 9.83789 26.3048 9.55839 26.2008C9.27889 26.0946 9.13805 25.7816 9.24314 25.5021C9.81405 23.9962 11.3231 22.9855 13.0001 22.9855C14.6771 22.9855 16.1862 23.9973 16.7571 25.5021ZM25.9655 25.5021C26.0716 25.7816 25.9308 26.0946 25.6502 26.2008C25.5863 26.2236 25.5224 26.2355 25.4585 26.2355C25.2396 26.2355 25.0338 26.1022 24.9515 25.8856C24.5398 24.799 23.4381 24.0688 22.2085 24.0688C20.9789 24.0688 19.8771 24.799 19.4655 25.8856C19.3593 26.1661 19.0473 26.3048 18.7667 26.2008C18.4872 26.0946 18.3464 25.7816 18.4515 25.5021C19.0224 23.9962 20.5315 22.9855 22.2085 22.9855C23.8855 22.9855 25.3946 23.9973 25.9655 25.5021ZM7.5488 25.5021C7.65497 25.7816 7.51414 26.0946 7.23355 26.2008C7.16964 26.2236 7.10572 26.2355 7.0418 26.2355C6.82297 26.2355 6.61714 26.1022 6.5348 25.8856C6.12314 24.799 5.02139 24.0688 3.7918 24.0688C2.56222 24.0688 1.46047 24.799 1.0488 25.8856C0.942638 26.1661 0.630638 26.3048 0.350054 26.2008C0.0705544 26.0946 -0.070279 25.7816 0.0348044 25.5021C0.605721 23.9962 2.1148 22.9855 3.7918 22.9855C5.4688 22.9855 6.97789 23.9973 7.5488 25.5021Z" fill="#6E3894"/>
@@ -51,20 +38,13 @@
    </clipPath>
  </defs>
 </svg>
-             <div class="text-body-2 font-weight-medium text-grey-darken-1">Human Resource</div>
-           </div>
+</div>
+             <div class="text-body-2 mt-2 font-weight-medium ">Human Resource</div>
          </v-card>
-       </v-col>
-       
        <!-- Facilities Tab -->
-       <v-col cols="2">
-         <v-card 
-           height="90" 
-           class="d-flex align-center justify-center rounded-lg" 
-           color="#F5F5F5"
-         >
-           <div class="text-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="27" viewBox="0 0 26 27" fill="none">
+         <v-card  height="98"  class="custom-width d-flex flex-column align-center justify-center rounded-lg" color="#F5F5F5">
+         <div class="box-icon d-flex justify-center align-center rounded">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="27" viewBox="0 0 26 27" fill="none">
  <g clip-path="url(#clip0_937_1265)">
    <path d="M21.6668 0.235474H10.2918C9.9928 0.235474 9.75014 0.47814 9.75014 0.77714C9.75014 1.07614 9.9928 1.31881 10.2918 1.31881H21.6668C23.4586 1.31881 24.9168 2.77697 24.9168 4.56881V11.0688C24.9168 12.8606 23.4586 14.3188 21.6668 14.3188V13.2355C21.6668 12.6375 21.1804 12.1521 20.5835 12.1521H17.3335C16.7366 12.1521 16.2501 12.6375 16.2501 13.2355V14.3188H10.2918C9.9928 14.3188 9.75014 14.5615 9.75014 14.8605C9.75014 15.1595 9.9928 15.4021 10.2918 15.4021H21.6668C24.0566 15.4021 26.0001 13.4586 26.0001 11.0688V4.56881C26.0001 2.17897 24.0566 0.235474 21.6668 0.235474ZM17.3335 13.2355H20.5835V14.3188H17.3335V13.2355ZM4.87514 5.65214C6.36797 5.65214 7.58347 4.43772 7.58347 2.94381C7.58347 1.44989 6.36797 0.235474 4.87514 0.235474C3.3823 0.235474 2.1668 1.44989 2.1668 2.94381C2.1668 4.43772 3.3823 5.65214 4.87514 5.65214ZM4.87514 1.31881C5.77105 1.31881 6.50014 2.04789 6.50014 2.94381C6.50014 3.83972 5.77105 4.56881 4.87514 4.56881C3.97922 4.56881 3.25014 3.83972 3.25014 2.94381C3.25014 2.04789 3.97922 1.31881 4.87514 1.31881ZM7.58347 7.81881V14.8605C7.58347 15.1595 7.34081 15.4021 7.0418 15.4021C6.74281 15.4021 6.50014 15.1595 6.50014 14.8605V7.81881H3.7918C2.29897 7.81881 1.08347 9.03322 1.08347 10.5271V14.8605C1.08347 15.1595 0.840804 15.4021 0.541804 15.4021C0.242804 15.4021 0.000137706 15.1595 0.000137706 14.8605V10.5271C0.000137706 8.43631 1.70097 6.73547 3.7918 6.73547H15.7085C16.0075 6.73547 16.2501 6.97814 16.2501 7.27714C16.2501 7.57614 16.0075 7.81881 15.7085 7.81881H7.58347ZM2.1668 19.7355C2.1668 18.8385 2.89589 18.1105 3.7918 18.1105C4.68772 18.1105 5.4168 18.8385 5.4168 19.7355C5.4168 20.6325 4.68772 21.3605 3.7918 21.3605C2.89589 21.3605 2.1668 20.6325 2.1668 19.7355ZM11.3751 19.7355C11.3751 18.8385 12.1042 18.1105 13.0001 18.1105C13.8961 18.1105 14.6251 18.8385 14.6251 19.7355C14.6251 20.6325 13.8961 21.3605 13.0001 21.3605C12.1042 21.3605 11.3751 20.6325 11.3751 19.7355ZM20.5835 19.7355C20.5835 18.8385 21.3126 18.1105 22.2085 18.1105C23.1044 18.1105 23.8335 18.8385 23.8335 19.7355C23.8335 20.6325 23.1044 21.3605 22.2085 21.3605C21.3126 21.3605 20.5835 20.6325 20.5835 19.7355ZM16.7571 25.5021C16.8633 25.7816 16.7225 26.0946 16.4419 26.2008C16.378 26.2236 16.3141 26.2355 16.2501 26.2355C16.0313 26.2355 15.8255 26.1022 15.7431 25.8856C15.3315 24.799 14.2297 24.0688 13.0001 24.0688C11.7706 24.0688 10.6688 24.799 10.2571 25.8856C10.1499 26.1661 9.83789 26.3048 9.55839 26.2008C9.27889 26.0946 9.13805 25.7816 9.24314 25.5021C9.81405 23.9962 11.3231 22.9855 13.0001 22.9855C14.6771 22.9855 16.1862 23.9973 16.7571 25.5021ZM25.9655 25.5021C26.0716 25.7816 25.9308 26.0946 25.6502 26.2008C25.5863 26.2236 25.5224 26.2355 25.4585 26.2355C25.2396 26.2355 25.0338 26.1022 24.9515 25.8856C24.5398 24.799 23.4381 24.0688 22.2085 24.0688C20.9789 24.0688 19.8771 24.799 19.4655 25.8856C19.3593 26.1661 19.0473 26.3048 18.7667 26.2008C18.4872 26.0946 18.3464 25.7816 18.4515 25.5021C19.0224 23.9962 20.5315 22.9855 22.2085 22.9855C23.8855 22.9855 25.3946 23.9973 25.9655 25.5021ZM7.5488 25.5021C7.65497 25.7816 7.51414 26.0946 7.23355 26.2008C7.16964 26.2236 7.10572 26.2355 7.0418 26.2355C6.82297 26.2355 6.61714 26.1022 6.5348 25.8856C6.12314 24.799 5.02139 24.0688 3.7918 24.0688C2.56222 24.0688 1.46047 24.799 1.0488 25.8856C0.942638 26.1661 0.630638 26.3048 0.350054 26.2008C0.0705544 26.0946 -0.070279 25.7816 0.0348044 25.5021C0.605721 23.9962 2.1148 22.9855 3.7918 22.9855C5.4688 22.9855 6.97789 23.9973 7.5488 25.5021Z" fill="#6E3894"/>
  </g>
@@ -74,26 +54,18 @@
    </clipPath>
  </defs>
 </svg>
-             <div class="text-body-2 font-weight-medium text-grey-darken-1">Facilities</div>
-           </div>
+</div>
+             <div class="text-body-2 mt-2 font-weight-medium ">Facilities</div>
          </v-card>
-       </v-col>
-     </v-row>
+     </div>
        </div>
       <!-- SubCategory -->
       <div class="title-system-create  mb-4 py-5 ">
        <h3 class="font-weight-bold mb-4 my-2">Select SubCategory</h3>
-        <v-row >
+        <div class="d-flex ga-2" >
        <!-- IT Tab - Active -->
-       <v-col cols="2">
-         <v-card 
-           height="170" 
-           class="d-flex align-center justify-center rounded-lg text-center px-3" 
-           color="#6E3894" 
-           dark
-
-         >
-           <div class="text-center">
+         <v-card  height="168"  class="custom-width d-flex flex-column  align-center justify-center rounded-lg"  color="#6E3894" dark>
+          <div class="box-icon-active d-flex justify-center align-center rounded">
             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="27" viewBox="0 0 26 27" fill="none">
   <g clip-path="url(#clip0_1113_1164)">
     <path d="M22.7501 24.6105V25.6939C22.7501 25.9929 22.5074 26.2355 22.2084 26.2355C21.9094 26.2355 21.6667 25.9929 21.6667 25.6939V24.6105C21.6667 21.9228 19.4795 19.7355 16.7917 19.7355H9.20842C6.52067 19.7355 4.33341 21.9228 4.33341 24.6105V25.6939C4.33341 25.9929 4.09075 26.2355 3.79175 26.2355C3.49275 26.2355 3.25008 25.9929 3.25008 25.6939V24.6105C3.25008 21.3259 5.92266 18.6522 9.20842 18.6522H16.7917C20.0775 18.6522 22.7501 21.3259 22.7501 24.6105ZM23.8334 8.36053V11.6105C23.8334 12.5065 23.1043 13.2355 22.2084 13.2355H21.6278C21.3645 15.0707 19.7817 16.4855 17.8751 16.4855H8.12508C6.21841 16.4855 4.63566 15.0707 4.37241 13.2355H3.79175C2.89583 13.2355 2.16675 12.5065 2.16675 11.6105V8.36053C2.16675 7.46462 2.89583 6.73553 3.79175 6.73553H4.33341V6.19387C4.33341 4.10303 6.03425 2.4022 8.12508 2.4022H12.4584V0.777201C12.4584 0.478201 12.7011 0.235535 13.0001 0.235535C13.2991 0.235535 13.5417 0.478201 13.5417 0.777201V2.4022H17.8751C19.9659 2.4022 21.6667 4.10303 21.6667 6.19387V6.73553H22.2084C23.1043 6.73553 23.8334 7.46462 23.8334 8.36053ZM3.79175 12.1522H4.33341V7.81887H3.79175C3.49275 7.81887 3.25008 8.06262 3.25008 8.36053V11.6105C3.25008 11.9085 3.49275 12.1522 3.79175 12.1522ZM20.5834 12.6939V6.19387C20.5834 4.69995 19.3679 3.48553 17.8751 3.48553H8.12508C6.63225 3.48553 5.41675 4.69995 5.41675 6.19387V12.6939C5.41675 14.1878 6.63225 15.4022 8.12508 15.4022H17.8751C19.3679 15.4022 20.5834 14.1878 20.5834 12.6939ZM22.7501 8.36053C22.7501 8.06262 22.5074 7.81887 22.2084 7.81887H21.6667V12.1522H22.2084C22.5074 12.1522 22.7501 11.9085 22.7501 11.6105V8.36053ZM11.9167 9.98553C11.9167 11.1805 10.945 12.1522 9.75008 12.1522C8.55516 12.1522 7.58342 11.1805 7.58342 9.98553C7.58342 8.79062 8.55516 7.81887 9.75008 7.81887C10.945 7.81887 11.9167 8.79062 11.9167 9.98553ZM10.8334 9.98553C10.8334 9.38754 10.347 8.9022 9.75008 8.9022C9.15316 8.9022 8.66675 9.38754 8.66675 9.98553C8.66675 10.5835 9.15316 11.0689 9.75008 11.0689C10.347 11.0689 10.8334 10.5835 10.8334 9.98553ZM18.4167 9.98553C18.4167 11.1805 17.445 12.1522 16.2501 12.1522C15.0552 12.1522 14.0834 11.1805 14.0834 9.98553C14.0834 8.79062 15.0552 7.81887 16.2501 7.81887C17.445 7.81887 18.4167 8.79062 18.4167 9.98553ZM17.3334 9.98553C17.3334 9.38754 16.847 8.9022 16.2501 8.9022C15.6532 8.9022 15.1667 9.38754 15.1667 9.98553C15.1667 10.5835 15.6532 11.0689 16.2501 11.0689C16.847 11.0689 17.3334 10.5835 17.3334 9.98553Z" fill="white"/>
@@ -104,138 +76,168 @@
     </clipPath>
   </defs>
 </svg>
-<div class="font-weight-medium">Human Resource</div>
-<div class="text-grey-darken-1" sytle="font-size:14px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe ad fugiat veniam.</div>
-           </div>
+</div>
+<div class="font-weight-medium my-2">Tech Support</div>
+<p class="px-2 text-center text-custom">Ask for help with IT or other technology related issues</p>
          </v-card>
-       </v-col>
-       
-       <!-- Human Resource Tab -->
-       <v-col cols="2">
-         <v-card 
-           height="170" 
-           class="d-flex align-center justify-center rounded-lg text-center px-3" 
-           color="#F5F5F5"
-         >
-           <div class="text-center">
+         <v-card  height="168" class="custom-width d-flex flex-column align-center justify-center rounded-lg "  color="#F5F5F5" dark>
+          <div class="box-icon d-flex justify-center align-center rounded">
             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="27" viewBox="0 0 26 27" fill="none">
- <g clip-path="url(#clip0_937_1265)">
-   <path d="M21.6668 0.235474H10.2918C9.9928 0.235474 9.75014 0.47814 9.75014 0.77714C9.75014 1.07614 9.9928 1.31881 10.2918 1.31881H21.6668C23.4586 1.31881 24.9168 2.77697 24.9168 4.56881V11.0688C24.9168 12.8606 23.4586 14.3188 21.6668 14.3188V13.2355C21.6668 12.6375 21.1804 12.1521 20.5835 12.1521H17.3335C16.7366 12.1521 16.2501 12.6375 16.2501 13.2355V14.3188H10.2918C9.9928 14.3188 9.75014 14.5615 9.75014 14.8605C9.75014 15.1595 9.9928 15.4021 10.2918 15.4021H21.6668C24.0566 15.4021 26.0001 13.4586 26.0001 11.0688V4.56881C26.0001 2.17897 24.0566 0.235474 21.6668 0.235474ZM17.3335 13.2355H20.5835V14.3188H17.3335V13.2355ZM4.87514 5.65214C6.36797 5.65214 7.58347 4.43772 7.58347 2.94381C7.58347 1.44989 6.36797 0.235474 4.87514 0.235474C3.3823 0.235474 2.1668 1.44989 2.1668 2.94381C2.1668 4.43772 3.3823 5.65214 4.87514 5.65214ZM4.87514 1.31881C5.77105 1.31881 6.50014 2.04789 6.50014 2.94381C6.50014 3.83972 5.77105 4.56881 4.87514 4.56881C3.97922 4.56881 3.25014 3.83972 3.25014 2.94381C3.25014 2.04789 3.97922 1.31881 4.87514 1.31881ZM7.58347 7.81881V14.8605C7.58347 15.1595 7.34081 15.4021 7.0418 15.4021C6.74281 15.4021 6.50014 15.1595 6.50014 14.8605V7.81881H3.7918C2.29897 7.81881 1.08347 9.03322 1.08347 10.5271V14.8605C1.08347 15.1595 0.840804 15.4021 0.541804 15.4021C0.242804 15.4021 0.000137706 15.1595 0.000137706 14.8605V10.5271C0.000137706 8.43631 1.70097 6.73547 3.7918 6.73547H15.7085C16.0075 6.73547 16.2501 6.97814 16.2501 7.27714C16.2501 7.57614 16.0075 7.81881 15.7085 7.81881H7.58347ZM2.1668 19.7355C2.1668 18.8385 2.89589 18.1105 3.7918 18.1105C4.68772 18.1105 5.4168 18.8385 5.4168 19.7355C5.4168 20.6325 4.68772 21.3605 3.7918 21.3605C2.89589 21.3605 2.1668 20.6325 2.1668 19.7355ZM11.3751 19.7355C11.3751 18.8385 12.1042 18.1105 13.0001 18.1105C13.8961 18.1105 14.6251 18.8385 14.6251 19.7355C14.6251 20.6325 13.8961 21.3605 13.0001 21.3605C12.1042 21.3605 11.3751 20.6325 11.3751 19.7355ZM20.5835 19.7355C20.5835 18.8385 21.3126 18.1105 22.2085 18.1105C23.1044 18.1105 23.8335 18.8385 23.8335 19.7355C23.8335 20.6325 23.1044 21.3605 22.2085 21.3605C21.3126 21.3605 20.5835 20.6325 20.5835 19.7355ZM16.7571 25.5021C16.8633 25.7816 16.7225 26.0946 16.4419 26.2008C16.378 26.2236 16.3141 26.2355 16.2501 26.2355C16.0313 26.2355 15.8255 26.1022 15.7431 25.8856C15.3315 24.799 14.2297 24.0688 13.0001 24.0688C11.7706 24.0688 10.6688 24.799 10.2571 25.8856C10.1499 26.1661 9.83789 26.3048 9.55839 26.2008C9.27889 26.0946 9.13805 25.7816 9.24314 25.5021C9.81405 23.9962 11.3231 22.9855 13.0001 22.9855C14.6771 22.9855 16.1862 23.9973 16.7571 25.5021ZM25.9655 25.5021C26.0716 25.7816 25.9308 26.0946 25.6502 26.2008C25.5863 26.2236 25.5224 26.2355 25.4585 26.2355C25.2396 26.2355 25.0338 26.1022 24.9515 25.8856C24.5398 24.799 23.4381 24.0688 22.2085 24.0688C20.9789 24.0688 19.8771 24.799 19.4655 25.8856C19.3593 26.1661 19.0473 26.3048 18.7667 26.2008C18.4872 26.0946 18.3464 25.7816 18.4515 25.5021C19.0224 23.9962 20.5315 22.9855 22.2085 22.9855C23.8855 22.9855 25.3946 23.9973 25.9655 25.5021ZM7.5488 25.5021C7.65497 25.7816 7.51414 26.0946 7.23355 26.2008C7.16964 26.2236 7.10572 26.2355 7.0418 26.2355C6.82297 26.2355 6.61714 26.1022 6.5348 25.8856C6.12314 24.799 5.02139 24.0688 3.7918 24.0688C2.56222 24.0688 1.46047 24.799 1.0488 25.8856C0.942638 26.1661 0.630638 26.3048 0.350054 26.2008C0.0705544 26.0946 -0.070279 25.7816 0.0348044 25.5021C0.605721 23.9962 2.1148 22.9855 3.7918 22.9855C5.4688 22.9855 6.97789 23.9973 7.5488 25.5021Z" fill="#6E3894"/>
- </g>
- <defs>
-   <clipPath id="clip0_937_1265">
-     <rect width="26" height="26" fill="white" transform="translate(0 0.235474)"/>
-   </clipPath>
- </defs>
+  <g clip-path="url(#clip0_1113_1164)">
+    <path d="M22.7501 24.6105V25.6939C22.7501 25.9929 22.5074 26.2355 22.2084 26.2355C21.9094 26.2355 21.6667 25.9929 21.6667 25.6939V24.6105C21.6667 21.9228 19.4795 19.7355 16.7917 19.7355H9.20842C6.52067 19.7355 4.33341 21.9228 4.33341 24.6105V25.6939C4.33341 25.9929 4.09075 26.2355 3.79175 26.2355C3.49275 26.2355 3.25008 25.9929 3.25008 25.6939V24.6105C3.25008 21.3259 5.92266 18.6522 9.20842 18.6522H16.7917C20.0775 18.6522 22.7501 21.3259 22.7501 24.6105ZM23.8334 8.36053V11.6105C23.8334 12.5065 23.1043 13.2355 22.2084 13.2355H21.6278C21.3645 15.0707 19.7817 16.4855 17.8751 16.4855H8.12508C6.21841 16.4855 4.63566 15.0707 4.37241 13.2355H3.79175C2.89583 13.2355 2.16675 12.5065 2.16675 11.6105V8.36053C2.16675 7.46462 2.89583 6.73553 3.79175 6.73553H4.33341V6.19387C4.33341 4.10303 6.03425 2.4022 8.12508 2.4022H12.4584V0.777201C12.4584 0.478201 12.7011 0.235535 13.0001 0.235535C13.2991 0.235535 13.5417 0.478201 13.5417 0.777201V2.4022H17.8751C19.9659 2.4022 21.6667 4.10303 21.6667 6.19387V6.73553H22.2084C23.1043 6.73553 23.8334 7.46462 23.8334 8.36053ZM3.79175 12.1522H4.33341V7.81887H3.79175C3.49275 7.81887 3.25008 8.06262 3.25008 8.36053V11.6105C3.25008 11.9085 3.49275 12.1522 3.79175 12.1522ZM20.5834 12.6939V6.19387C20.5834 4.69995 19.3679 3.48553 17.8751 3.48553H8.12508C6.63225 3.48553 5.41675 4.69995 5.41675 6.19387V12.6939C5.41675 14.1878 6.63225 15.4022 8.12508 15.4022H17.8751C19.3679 15.4022 20.5834 14.1878 20.5834 12.6939ZM22.7501 8.36053C22.7501 8.06262 22.5074 7.81887 22.2084 7.81887H21.6667V12.1522H22.2084C22.5074 12.1522 22.7501 11.9085 22.7501 11.6105V8.36053ZM11.9167 9.98553C11.9167 11.1805 10.945 12.1522 9.75008 12.1522C8.55516 12.1522 7.58342 11.1805 7.58342 9.98553C7.58342 8.79062 8.55516 7.81887 9.75008 7.81887C10.945 7.81887 11.9167 8.79062 11.9167 9.98553ZM10.8334 9.98553C10.8334 9.38754 10.347 8.9022 9.75008 8.9022C9.15316 8.9022 8.66675 9.38754 8.66675 9.98553C8.66675 10.5835 9.15316 11.0689 9.75008 11.0689C10.347 11.0689 10.8334 10.5835 10.8334 9.98553ZM18.4167 9.98553C18.4167 11.1805 17.445 12.1522 16.2501 12.1522C15.0552 12.1522 14.0834 11.1805 14.0834 9.98553C14.0834 8.79062 15.0552 7.81887 16.2501 7.81887C17.445 7.81887 18.4167 8.79062 18.4167 9.98553ZM17.3334 9.98553C17.3334 9.38754 16.847 8.9022 16.2501 8.9022C15.6532 8.9022 15.1667 9.38754 15.1667 9.98553C15.1667 10.5835 15.6532 11.0689 16.2501 11.0689C16.847 11.0689 17.3334 10.5835 17.3334 9.98553Z" fill="white"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_1113_1164">
+      <rect width="26" height="26" fill="white" transform="translate(0 0.235535)"/>
+    </clipPath>
+  </defs>
 </svg>
-             <div class="font-weight-medium">Human Resource</div>
-             <div sytle="font-size:14px !important">Ask for help with IT or other technology related issues</div>
-           </div>
+</div>
+<div class="font-weight-medium my-2">Request Equipment</div>
+<p class="px-2 text-center text-custom">Request computer hardware, peripherals or other office equipment</p>
          </v-card>
-       </v-col>
-     
-     </v-row>
+        </div>
        </div>
-  <!-- tab  -->
-  <div class="ticket-form-container">
-    <div class="tabs-container">
-      <div class="tab hardware active w-50">
-        <v-icon class="tab-icon">mdi-desktop-tower-monitor</v-icon>
+   
+       <!-- Tabs -->
+     <v-tabs v-model="tab" background-color="transparent" class="elevation-1" grow>
+      <v-tab class="custom-tab" :class="{ 'active-tab': tab === 0 }">
+        <v-icon left>mdi-monitor</v-icon>
         Hardware
-      </div>
-      <div class="tab software w-50">
-        <v-icon class="tab-icon">mdi-application-outline</v-icon>
+      </v-tab>
+      <v-tab class="custom-tab" :class="{ 'active-tab': tab === 1 }">
+        <v-icon left>mdi-cog</v-icon>
         Software
-      </div>
-    </div>
+      </v-tab>
+    </v-tabs>
 
-    <div class="form-container">
-      <div class="form-field">
-        <label class="field-label">Ticket Type</label>
+    <!-- Form -->
+    <v-form ref="form" v-model="valid" class="mt-6">
+      <!-- Ticket Type -->
+      <v-card class="my-6 pa-4" elevation="2">
+
+       <!-- Single Select -->
+       <v-col cols="5" class="pr-2">
         <v-select
-          outlined
-          placeholder="Select"
-          :items="ticketTypes"
-          v-model="ticketType"
-          hide-details
-          class="ticket-select"
-        ></v-select>
-      </div>
+          v-model="selectedColor"
+          label="Ticket type"
+          variant="solo"
+          menu-icon="mdi-chevron-down"
+          color="#44225A"
+          
+          class="custom-select"
+        >
+          <template v-slot:prepend-item>
+            <v-list density="compact" class="py-0"> 
+              <v-list-item  
+                v-for="(color, index) in colors" 
+                :key="index" 
+                @click="selectColor(color)"
+                class="px-2 py-0 my-0"
+                style="min-height: 36px;"
+              >
+                <template v-slot:prepend>
+                  <v-checkbox 
+                    :model-value="selectedColor === color"
+                    color="#44225A"
+                    density="compact"
+                    class="mr-2"
+                    hide-details
+                  ></v-checkbox>
+                </template>
+                <v-list-item-title class="text-sm">{{ color }}</v-list-item-title>
+              </v-list-item>
+            </v-list> 
+          </template>
+        </v-select>
+      </v-col>
 
-      <div class="form-field">
-        <label class="field-label">Ticket Subject</label>
+
+      <!-- Subject -->
+      <v-col cols="12" sm="4">
+       
+      <div class="mb-4">
+        <label class="text-subtitle-1 font-weight-medium text-black mb-1 d-block">
+          Ticket Subject
+        </label>
+
         <v-text-field
-          outlined
+          v-model="subject"
+          variant="outlined"
           placeholder="please enter ticket subject"
-          v-model="ticketSubject"
+          :error="error"
+          density="comfortable"
           hide-details
-          class="ticket-input"
+          @input="onInput"
+          class="border-input dark-text"
         ></v-text-field>
-        <div class="required-text">*This field is required</div>
-      </div>
 
-      <div class="form-field">
-        <label class="field-label">Ticket Description</label>
-        <div class="editor-toolbar">
-          <button class="toolbar-btn"><v-icon small>mdi-refresh</v-icon></button>
-          <button class="toolbar-btn"><v-icon small>mdi-undo</v-icon></button>
-          <div class="separator">|</div>
-          <div class="dropdown">Normal text <v-icon small>mdi-menu-down</v-icon></div>
-          <div class="separator">|</div>
-          <button class="toolbar-btn text-color"><v-icon small>mdi-format-color-text</v-icon></button>
-          <button class="toolbar-btn"><v-icon small>mdi-format-bold</v-icon></button>
-          <button class="toolbar-btn"><v-icon small>mdi-format-italic</v-icon></button>
-          <button class="toolbar-btn"><v-icon small>mdi-format-underline</v-icon></button>
-          <button class="toolbar-btn"><v-icon small>mdi-format-strikethrough-variant</v-icon></button>
-          <div class="separator">|</div>
-          <button class="toolbar-btn"><v-icon small>mdi-format-list-bulleted</v-icon></button>
-          <button class="toolbar-btn"><v-icon small>mdi-format-list-numbered</v-icon></button>
-          <div class="separator">|</div>
-          <button class="toolbar-btn"><v-icon small>mdi-link</v-icon></button>
-          <button class="toolbar-btn"><v-icon small>mdi-image</v-icon></button>
-          <button class="toolbar-btn"><v-icon small>mdi-slash-forward</v-icon></button>
-          <button class="toolbar-btn"><v-icon small>mdi-dots-horizontal</v-icon></button>
-          <button class="toolbar-btn"><v-icon small>mdi-format-quote-close</v-icon></button>
-          <button class="toolbar-btn"><v-icon small>mdi-code-tags</v-icon></button>
+        <div
+          v-if="error"
+          class="text-caption mt-1 text-error"
+        >
+          This field is required
         </div>
-        <v-textarea
-          outlined
-          placeholder="Enter your ticket description..."
-          v-model="ticketDescription"
-          hide-details
-          class="ticket-textarea"
-          no-resize
-          rows="7"
-        ></v-textarea>
-      </div>
-
-      <div class="media-upload">
-        <div class="media-upload-header">
-          <div>
-            <div class="media-title">Media Upload</div>
-            <div class="media-subtitle">Add your documents here, and you can upload up to 5 files max</div>
-          </div>
-          <v-btn icon class="close-btn">
-            <v-icon>mdi-close</v-icon>
-          </v-btn>
-        </div>
-        
-        <div class="upload-container">
-          <div class="upload-box">
-            <v-icon size="48" color="purple darken-2">mdi-image-multiple</v-icon>
-            <div class="upload-text">Drag your file(s) to start uploading</div>
-            <div class="upload-or">OR</div>
-            <v-btn small outlined class="browse-btn">Browse files</v-btn>
-          </div>
-          <div class="file-types">Only support .jpg, .png, .svg and .zip files</div>
+        <div v-if="!subject && !error" class="text-caption mt-1 text-grey">
+          *this field is required
         </div>
       </div>
+  </v-col>
 
-      <div class="form-actions">
-        <v-btn color="purple darken-3" dark class="send-btn">Send</v-btn>
-      </div>
-    </div>
-  </div>
+      <!-- Description -->
+      <v-textarea
+        v-model="ticketDescription"
+        label="Ticket Description"
+        placeholder="Enter your ticket description..."
+        outlined
+        auto-grow
+        class="mt-4"
+      ></v-textarea>
+
+      <!-- Media Upload -->
+       <v-card class="pa-4 my-6">
+        <div class="d-flex justify-space-between align-center">
+          <h4 class="font-weight-bold">Media Upload</h4>
+          <v-btn flat icon @click="clearFiles"><v-icon>mdi-close</v-icon></v-btn>
+        </div>
+        <p class="mb-2" style="color:#6D6D6D !important;">Add your documents here, and you can upload up to 5 files max</p>
+        <div class="upload-area">
+          <svg xmlns="http://www.w3.org/2000/svg" width="43" height="42" viewBox="0 0 43 42" fill="none">
+  <g clip-path="url(#clip0_1410_544)">
+    <path d="M33.7347 3.12073H14.4673V11.1108H37.8497V7.23415C37.8497 4.96579 36.0037 3.12073 33.7347 3.12073Z" fill="#CED9F9"/>
+    <path d="M22.8282 12.3403H0.292969V4.92636C0.292969 2.20972 2.50365 0 5.22125 0H12.4265C13.1427 0 13.8326 0.150925 14.4594 0.434509C15.3348 0.828964 16.0869 1.47913 16.6143 2.3286L22.8282 12.3403Z" fill="#43235C"/>
+    <path d="M42.293 14.0001V37.8815C42.293 40.1527 40.4441 42 38.1719 42H4.41408C2.14188 42 0.292969 40.1527 0.292969 37.8815V9.88062H38.1719C40.4441 9.88062 42.293 11.7286 42.293 14.0001Z" fill="#43235C"/>
+    <path d="M42.293 14.0001V37.8815C42.293 40.1527 40.4441 42 38.1719 42H21.293V9.88062H38.1719C40.4441 9.88062 42.293 11.7286 42.293 14.0001Z" fill="#43235C"/>
+    <path d="M32.341 25.9398C32.341 32.0322 27.3848 36.9887 21.2931 36.9887C15.2013 36.9887 10.2451 32.0322 10.2451 25.9398C10.2451 19.8483 15.2013 14.8918 21.2931 14.8918C27.3848 14.8918 32.341 19.8483 32.341 25.9398Z" fill="#E7ECFC"/>
+    <path d="M32.3409 25.9398C32.3409 32.0322 27.3848 36.9887 21.293 36.9887V14.8918C27.3848 14.8918 32.3409 19.8483 32.3409 25.9398Z" fill="#CED9F9"/>
+    <path d="M24.8542 26.0753C24.6238 26.2704 24.3415 26.3656 24.0617 26.3656C23.7115 26.3656 23.3635 26.2173 23.12 25.9282L22.5237 25.2213V29.8494C22.5237 30.5287 21.9725 31.0799 21.2932 31.0799C20.6139 31.0799 20.0627 30.5287 20.0627 29.8494V25.2213L19.4664 25.9282C19.0274 26.4476 18.2516 26.514 17.7322 26.0753C17.2131 25.6373 17.1464 24.8612 17.5845 24.3418L20.0201 21.4543C20.3377 21.0788 20.801 20.8628 21.2932 20.8628C21.7854 20.8628 22.2487 21.0788 22.5663 21.4543L25.0019 24.3418C25.4399 24.8612 25.3733 25.6373 24.8542 26.0753Z" fill="#D0B5E3"/>
+    <path d="M24.854 26.0753C24.6236 26.2704 24.3413 26.3656 24.0615 26.3656C23.7113 26.3656 23.3633 26.2173 23.1198 25.9282L22.5234 25.2213V29.8494C22.5234 30.5287 21.9723 31.0799 21.293 31.0799V20.8628C21.7852 20.8628 22.2485 21.0788 22.5661 21.4543L25.0017 24.3418C25.4397 24.8612 25.3731 25.6373 24.854 26.0753Z" fill="#A16BC7"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_1410_544">
+      <rect width="42" height="42" fill="white" transform="translate(0.292969)"/>
+    </clipPath>
+  </defs>
+</svg>
+          <div class="mt-2">Drag your file(s) to start uploading</div>
+          <div class="my-2">OR</div>
+          <bottun class="browse-btn" outlined dark @click="$refs.fileInput.click()">  Browse files</bottun>
+          <input
+            ref="fileInput"
+            type="file"
+            multiple
+            accept=".jpg,.png,.svg,.zip"
+            class="d-none"
+            @change="handleFileUpload"
+          />
+        </div>
+        <small class="text-caption d-block mt-2"> Only support .jpg, .png, .svg and .zip files</small>
+       </v-card>
+           <!-- Submit Button -->
+      <v-btn color="#44225A" class="mt-6 text-white " width="141" height="44" @click="submit">Send</v-btn>
+      </v-card>
+    </v-form>
+
    
     </v-app>
   </template>
@@ -244,34 +246,80 @@
  export default {
   data() {
     return {
-      ticketType: '',
-      ticketTypes: ['Hardware Issue', 'Software Issue', 'Network Problem', 'Other'],
-      ticketSubject: '',
+      tab: 0,
+      valid: false,
+      ticketType: null,
+      ticketTypes: ['Hardware', 'Software', 'Network'],
+      subject: '',
+      error: false,
       ticketDescription: '',
-      files: []
+      files: [],
+      colors: ['Red', 'Green', 'Blue', 'Yellow', 'Purple', 'Black', 'Light'],
+      selectedColors: [],
+      selectedColor: null,
     }
   },
   methods: {
+    clearFiles() {
+      this.files = [];
+    },
+    handleFileUpload(e) {
+      const selectedFiles = Array.from(e.target.files);
+      if (selectedFiles.length + this.files.length > 5) {
+        alert('You can upload up to 5 files max.');
+        return;
+      }
+      this.files.push(...selectedFiles);
+    },
     submit() {
-      console.log({
-        ticketType: this.ticketType,
-        subject: this.ticketSubject,
-        description: this.ticketDescription,
-        files: this.files
-      })
+      if (this.$refs.form.validate()) {
+        alert('Form Submitted');
+      }
+    },
+    selectColor(color) {
+      this.selectedColor = this.selectedColor === color ? null : color;
+    },
+    onInput() {
+      if (this.subject.trim()) {
+        this.error = false;
+      }
     }
-  }
-}
+  
+  },
+};
   </script>
   
   <style scoped>
+  .custom-width{
+width:188px !important;
+  }
+  .box-icon{
+    width: 52px;
+    background-color: #eaebeb;
+    padding-block: 10px;
+  }
+  .box-icon-active{
+    width: 52px;
+    background-color: #8456a4;
+    padding-block: 10px;
+    
+  }
   .title-system-create{
     background-color: #fff;
   }
   .new-ticket-container {
     max-width: 900px;
   }
-  
+  .browse-btn { 
+  color: #44225A !important;
+  border: 1.5px solid #44225A !important;
+  background-color: transparent !important;
+  font-weight: 700 !important;
+  font-size: 14px;
+  padding: 4px 12px !important;
+  border-radius: 6px !important;
+}
+
   .category-card {
     cursor: pointer;
     transition: all 0.2s ease;
@@ -290,171 +338,68 @@
   .gap-3 {
     gap: 12px;
   }
-  .ticket-form-container {
-  font-family: Roboto, sans-serif;
-  max-width: 100%;
+
+.text-custom{
+  font-size: 12px !important;
 }
 
-.tabs-container {
-  display: flex;
-  border-bottom: 1px solid #e0e0e0;
-}
 
-.tab {
-  padding: 16px 24px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  color: #616161;
-  transition: all 0.3s;
-}
 
-.tab.active {
-  background-color: #6a1b9a;
-  color: white;
-}
-
-.tab.software {
-  background-color: #f5f5f5;
-  border-left: 1px solid #e0e0e0;
-  border-top: 1px solid #e0e0e0;
-  border-right: 1px solid #e0e0e0;
-  border-top-right-radius: 4px;
-}
-
-.tab-icon {
-  margin-right: 8px;
-}
-
-.form-container {
-  padding: 24px;
-  background-color: white;
-}
-
-.form-field {
-  margin-bottom: 20px;
-}
-
-.field-label {
-  display: block;
-  margin-bottom: 8px;
+  .custom-tab {
+  text-transform: none;
   font-weight: 500;
-}
-
-.ticket-select,
-.ticket-input,
-.ticket-textarea {
-  width: 100%;
-  border-radius: 4px;
-}
-
-.required-text {
-  color: #dc3545;
-  font-size: 12px;
-  margin-top: 4px;
-}
-
-.editor-toolbar {
-  display: flex;
-  align-items: center;
-  padding: 8px;
+  color: #aaa;
   background-color: #f5f5f5;
-  border: 1px solid #e0e0e0;
-  border-bottom: none;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  flex-wrap: wrap;
+  border-radius: 6px 6px 0 0;
 }
-
-.toolbar-btn {
-  background: none;
-  border: none;
-  padding: 4px 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.active-tab {
+  background-color: #5e2c91 !important;
+  color: white !important;
 }
-
-.toolbar-btn.text-color {
-  color: black;
-}
-
-.dropdown {
-  padding: 4px 8px;
-  display: flex;
-  align-items: center;
+.upload-area {
+  border: 2px dashed #44225A;
+  padding: 30px;
+  text-align: center;
+  border-radius: 8px;
   cursor: pointer;
 }
-
-.separator {
-  color: #bdbdbd;
-  margin: 0 4px;
+.custom-input .v-input__control {
+  border: 1px solid red;
+  border-radius: 6px;
 }
-
-.media-upload {
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  margin-bottom: 24px;
+.text-grey {
+  color: #888;
 }
-
-.media-upload-header {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.media-title {
-  font-weight: 500;
-}
-
-.media-subtitle {
-  color: #757575;
-  font-size: 14px;
-}
-
-.close-btn {
-  margin-top: -8px;
-}
-
-.upload-container {
-  padding: 0 16px 16px;
-}
-
-.upload-box {
-  border: 2px dashed #e0e0e0;
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.upload-text {
-  margin-top: 16px;
-}
-
-.upload-or {
-  margin: 8px 0;
-}
-
 .browse-btn {
-  text-transform: none;
+  color: #44225A !important; 
+  border: 1px solid #44225A !important;
+  background-color: transparent !important;
+  padding: 10px 15px  !important;
+  font-weight: 600 !important;
+  font-size: 14px;
+  text-transform: none !important;
+width: 95px !important;
+height: 30px !important;
+  border-radius: 6px !important;
+}
+.border-input >>> .v-field {
+  border: 1px solid #d1d5db !important;
+  border-radius: 6px;
 }
 
-.file-types {
-  margin-top: 8px;
-  color: #757575;
-  font-size: 12px;
+.dark-text >>> input {
+  color: #212121 !important;
 }
 
-.form-actions {
-  margin-top: 16px;
+.dark-text >>> input::placeholder {
+  color: #616161 !important;
 }
 
-.send-btn {
-  text-transform: none;
-  min-width: 80px;
+.text-grey {
+  color: #9e9e9e;
+}
+
+.text-error {
+  color: #f44336;
 }
   </style>

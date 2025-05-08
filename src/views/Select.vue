@@ -2,7 +2,7 @@
   <v-container fluid class="pa-0">
     <v-row no-gutters>
       <!-- Single Select -->
-      <v-col cols="12" md="4" class="pr-2">
+      <v-col cols="12" md="6" class="pr-2">
         <v-select
           v-model="selectedColor"
           label="Select"
@@ -41,7 +41,7 @@
       </v-col>
       <!-- multiple Select -->
   
-      <v-col cols="12" md="4" class="pl-2">
+      <v-col cols="12" md="6" class="pl-2">
         <v-select
           v-model="selectedColors"
           :items="colors"
@@ -60,7 +60,7 @@
       </v-col>
 
       <!-- Disabled Select -->
-      <v-col cols="12" md="4" class="pl-2">
+      <v-col cols="12" md="6" class="pl-2">
         <v-select
           disabled
           label="Multiple Select"

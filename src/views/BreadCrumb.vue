@@ -129,18 +129,13 @@
   .v-text-field .v-field--focused {
     box-shadow: none !important;
   }
-  
   .v-text-field .v-field {
     box-shadow: none !important;
     border-color: transparent !important;
   }
-  
-  /* إلغاء جميع حالات الفوكس */
   .v-text-field input:focus {
     outline: none !important;
   }
-  
-  /* إلغاء التاثير بشكل شامل */
   .v-field--variant-outlined.v-field--focused .v-field__outline {
     opacity: 0 !important;
   }
