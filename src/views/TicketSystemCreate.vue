@@ -101,11 +101,11 @@
    
        <!-- Tabs -->
      <v-tabs v-model="tab" background-color="transparent" class="elevation-1" grow>
-      <v-tab class="custom-tab" :class="{ 'active-tab': tab === 0 }">
+      <v-tab class="custom-tab rounded" :class="{ 'active-tab': tab === 0 }">
         <v-icon left>mdi-monitor</v-icon>
         Hardware
       </v-tab>
-      <v-tab class="custom-tab" :class="{ 'active-tab': tab === 1 }">
+      <v-tab class="custom-tab rounded" :class="{ 'active-tab': tab === 1 }">
         <v-icon left>mdi-cog</v-icon>
         Software
       </v-tab>
