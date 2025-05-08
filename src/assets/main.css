@@ -1170,7 +1170,7 @@ box-shadow: none !important;
 .table-row {
   display: flex;
   border-bottom: 1px solid #EAECF0;
-  padding: 12px 0;
+  padding: 2px 0;
   align-items: center;
 }
 

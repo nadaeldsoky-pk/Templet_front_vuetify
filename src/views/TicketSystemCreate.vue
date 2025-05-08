@@ -117,15 +117,15 @@
       <v-card class="my-6 pa-4" elevation="2">
 
        <!-- Single Select -->
-       <v-col cols="5" class="pr-2">
+       <v-col cols="5" class="pr-2 py-0">
         <v-select
           v-model="selectedColor"
           label="Ticket type"
           variant="solo"
           menu-icon="mdi-chevron-down"
           color="#44225A"
-          
-          class="custom-select"
+          flat
+          class="custom-select border-input"
         >
           <template v-slot:prepend-item>
             <v-list density="compact" class="py-0"> 
@@ -151,16 +151,10 @@
           </template>
         </v-select>
       </v-col>
-
-
       <!-- Subject -->
-      <v-col cols="12" sm="4">
-       
-      <div class="mb-4">
-        <label class="text-subtitle-1 font-weight-medium text-black mb-1 d-block">
-          Ticket Subject
-        </label>
-
+      <v-col cols="8" class="py-0">   
+      <div>
+        <label class="text-subtitle-1 font-weight-medium text-black mb-1 d-block">Ticket Subject</label>
         <v-text-field
           v-model="subject"
           variant="outlined"
@@ -191,7 +185,6 @@
         placeholder="Enter your ticket description..."
         outlined
         auto-grow
-        class="mt-4"
       ></v-textarea>
 
       <!-- Media Upload -->
@@ -402,4 +395,5 @@ height: 30px !important;
 .text-error {
   color: #f44336;
 }
+
   </style>

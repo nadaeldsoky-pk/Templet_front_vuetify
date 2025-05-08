@@ -1,7 +1,7 @@
 <!-- src/views/Employees.vue -->
 <template>
   <div class="employees">
-   <v-container>
+   <v-container fluid>
     
     <div class="d-flex align-center mb-6">
       <h1 class="text-h4 mr-2">Employees</h1>
@@ -23,288 +23,292 @@ line-height:18px !important;">{{ currentTabData.length }}</v-chip>
       </v-btn>
     </div>
 
-    <v-tabs v-model="activeTab" class="custom-tabs">
+    <v-tabs v-model="activeTab" class="custom-tabs mb-3 position-relative under-line">
       <v-tab>All Employees</v-tab>
       <v-tab>Teams</v-tab>
       <v-tab>Roles</v-tab>
     </v-tabs>
+    <v-card-text class="px-0">
+
+<v-row align="center" justify="center mb-2">
+  <v-col cols="12">
+    <v-text-field
+    v-model="search"
+    density="compact"
+    variant="outlined"
+    placeholder="Search Employee by name, role, ID or any related keywords"
+    prepend-inner-icon="mdi-magnify"
+    hide-details
+    class="search-field"
+  >
+    <template v-slot:append-inner>
+<v-btn variant="text" class="filter-btn text-capitalize text-black " style=" border: solid 1px #EAECF0 ; height: 30px;">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+<path d="M5 10H15M2.5 5H17.5M7.5 15H12.5" stroke="#344054" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Filter
+      </v-btn>
+      <span class="red-dot"></span>
+      <v-btn icon class="icon-btn custom-icon" style="background-color: #efefef !important;"  elevation="0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+<path d="M9 17.5H19M9 12.5H19M9 7.5H19M5.00195 17.5V17.502L5 17.502V17.5H5.00195ZM5.00195 12.5V12.502L5 12.502V12.5H5.00195ZM5.00195 7.5V7.502L5 7.50195V7.5H5.00195Z" stroke="#0E0E0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+      </v-btn>
+      <v-btn icon class="icon-btn custom-icon"  elevation="0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+<path d="M18.3333 7.60002V3.81669C18.3333 2.64169 17.8 2.16669 16.475 2.16669H13.1083C11.7833 2.16669 11.25 2.64169 11.25 3.81669V7.59169C11.25 8.77502 11.7833 9.24169 13.1083 9.24169H16.475C17.8 9.25002 18.3333 8.77502 18.3333 7.60002Z" stroke="#858585" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M18.3333 16.975V13.6083C18.3333 12.2833 17.8 11.75 16.475 11.75H13.1083C11.7833 11.75 11.25 12.2833 11.25 13.6083V16.975C11.25 18.3 11.7833 18.8333 13.1083 18.8333H16.475C17.8 18.8333 18.3333 18.3 18.3333 16.975Z" stroke="#858585" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8.75008 7.60002V3.81669C8.75008 2.64169 8.21675 2.16669 6.89175 2.16669H3.52508C2.20008 2.16669 1.66675 2.64169 1.66675 3.81669V7.59169C1.66675 8.77502 2.20008 9.24169 3.52508 9.24169H6.89175C8.21675 9.25002 8.75008 8.77502 8.75008 7.60002Z" stroke="#858585" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8.75008 16.975V13.6083C8.75008 12.2833 8.21675 11.75 6.89175 11.75H3.52508C2.20008 11.75 1.66675 12.2833 1.66675 13.6083V16.975C1.66675 18.3 2.20008 18.8333 3.52508 18.8333H6.89175C8.21675 18.8333 8.75008 18.3 8.75008 16.975Z" stroke="#858585" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+      </v-btn>
+    </template>
+  </v-text-field>
+</v-col>
+
+</v-row>
+
+
+<div class="employees ">
+<!-- Tab 1: All Employees -->
+<div v-if="activeTab === 0" class="employee-table">
+  <!-- Table Header -->
+  <div class="table-header">
+    <div class="header-cell name-cell">
+      <v-checkbox
+v-model="selectAll"
+label="Name"
+:indeterminate="isIndeterminate"
+@change="toggleSelectAll"
+></v-checkbox>
+      </div>
+    <div class="header-cell id-cell">Employee ID</div>
+    <div class="header-cell role-cell">Role</div>
+    <div class="header-cell status-cell">Status</div>
+    <div class="header-cell teams-cell">Teams</div>
+    <div class="header-cell actions-cell"></div>
+  </div>
+
+  <!-- Table Rows -->
+  <div v-for="(employee, index) in filteredEmployees" :key="employee.id" class="table-row">
+    <!-- Name Cell -->
+    <div class="cell name-cell">
+      <v-checkbox
+v-model="selectedEmployees"
+:value="employee.id"
+@change="updateSelectAll"
+>
+<template v-slot:label>
+<div class="avatar" :style="{ backgroundColor: getAvatarColor(employee.name) }">
+{{ getInitials(employee.name) }}
+</div>
+</template>
+</v-checkbox>
+      
+      <div class="employee-info">
+        <div class="employee-name">{{ employee.name }}</div>
+        <div class="employee-email">{{ employee.email }}</div>
+      </div>
+    </div>
+
+    <!-- ID Cell -->
+    <div class="cell id-cell">{{ employee.id }}</div>
+
+    <!-- Role Cell -->
+    <div class="cell role-cell">
+      <div class="role-title">{{ employee.role }}</div>
+      <div class="role-type">{{ employee.position }}</div>
+    </div>
+
+    <!-- Status Cell -->
+    <div class="cell status-cell">
+      <div class="status-badge" :class="employee.status === 'Active' ? 'active' : 'inactive'">
+        <span class="status-dot"></span>
+        {{ employee.status }}
+      </div>
+    </div>
+
+    <!-- Teams Cell -->
+    <div class="cell teams-cell">
+      <div class="teams-container">
+        <span 
+          v-for="(team, teamIndex) in employee.teams" 
+          :key="teamIndex" 
+          class="team-badge"
+          :class="`team-${team.toLowerCase()}`"
+        >
+          {{ team }}
+        </span>
+        <span v-if="employee.level" class="level-badge">+{{ employee.level }}</span>
+      </div>
+    </div>
+
+    <!-- Actions Cell -->
+    <div class="cell actions-cell">
+      <button class="action-button">
+        <svg viewBox="0 0 24 24" width="18" height="18">
+          <path fill="currentColor" d="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Tab 2: Teams -->
+<div v-if="activeTab === 1" class="employee-table">
+  <!-- Table Header -->
+  <div class="table-header">
+    <div class="header-cell name-cell">Team Name</div>
+    <div class="header-cell id-cell">Department</div>
+    <div class="header-cell role-cell">Team Lead</div>
+    <div class="header-cell status-cell">Status</div>
+    <div class="header-cell teams-cell">Members</div>
+    <div class="header-cell actions-cell"></div>
+  </div>
+
+  <!-- Table Rows -->
+  <div v-for="(team, index) in filteredTeams" :key="index" class="table-row">
+    <!-- Name Cell -->
+    <div class="cell name-cell">
+      <div class="avatar" :style="{ backgroundColor: getAvatarColor(team.name) }">
+        {{ getInitials(team.name) }}
+      </div>
+      <div class="employee-info">
+        <div class="employee-name">{{ team.name }}</div>
+        <div class="employee-email">{{ team.code }}</div>
+      </div>
+    </div>
+
+    <!-- Department Cell -->
+    <div class="cell id-cell">{{ team.department }}</div>
+
+    <!-- Team Lead Cell -->
+    <div class="cell role-cell">
+      <div class="role-title">{{ team.lead }}</div>
+      <div class="role-type">{{ team.leadTitle }}</div>
+    </div>
+
+    <!-- Status Cell -->
+    <div class="cell status-cell">
+      <div class="status-badge" :class="team.active ? 'active' : 'inactive'">
+        <span class="status-dot"></span>
+        {{ team.active ? 'Active' : 'Inactive' }}
+      </div>
+    </div>
+
+    <!-- Members Cell -->
+    <div class="cell teams-cell">
+      <div class="teams-container">
+        <span class="level-badge">{{ team.memberCount }} Members</span>
+      </div>
+    </div>
+
+    <!-- Actions Cell -->
+    <div class="cell actions-cell">
+      <button class="action-button">
+        <svg viewBox="0 0 24 24" width="18" height="18">
+          <path fill="currentColor" d="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Tab 3: Roles -->
+<div v-if="activeTab === 2" class="employee-table">
+  <!-- Table Header -->
+  <div class="table-header">
+    <div class="header-cell name-cell">Role</div>
+    <div class="header-cell id-cell">Department</div>
+    <div class="header-cell role-cell">Level</div>
+    <div class="header-cell status-cell">Status</div>
+    <div class="header-cell teams-cell">Assigned</div>
+    <div class="header-cell actions-cell"></div>
+  </div>
+
+  <!-- Table Rows -->
+  <div v-for="(role, index) in filteredRoles" :key="index" class="table-row">
+    <!-- Role Name Cell -->
+    <div class="cell name-cell">
+      <div class="avatar" :style="{ backgroundColor: getAvatarColor(role.roleTitle) }">
+        {{ getInitials(role.roleTitle) }}
+      </div>
+      <div class="employee-info">
+        <div class="employee-name">{{ role.roleTitle }}</div>
+        <div class="employee-email">{{ role.code }}</div>
+      </div>
+    </div>
+
+    <!-- Department Cell -->
+    <div class="cell id-cell">{{ role.department }}</div>
+
+    <!-- Level Cell -->
+    <div class="cell role-cell">
+      <div class="role-title">Level {{ role.level }}</div>
+      <div class="role-type">{{ role.experienceRequired }}</div>
+    </div>
+
+    <!-- Status Cell -->
+    <div class="cell status-cell">
+      <div class="status-badge" :class="role.isActive ? 'active' : 'inactive'">
+        <span class="status-dot"></span>
+        {{ role.isActive ? 'Active' : 'Inactive' }}
+      </div>
+    </div>
+
+    <!-- Assigned Cell -->
+    <div class="cell teams-cell">
+      <div class="teams-container">
+        <span 
+          v-for="(skill, skillIndex) in role.requiredSkills" 
+          :key="skillIndex" 
+          class="team-badge"
+          :class="`team-${getSkillClass(skill)}`"
+        >
+          {{ skill }}
+        </span>
+      </div>
+    </div>
+
+    <!-- Actions Cell -->
+    <div class="cell actions-cell">
+      <button class="action-button">
+        <svg viewBox="0 0 24 24" width="18" height="18">
+          <path fill="currentColor" d="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Pagination -->
+<div class="pagination">
+  <button class="pagination-button prev">
+    <svg viewBox="0 0 24 24" width="16" height="16">
+      <path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+    </svg>
+    Previous
+  </button>
+  <div class="page-numbers">
+    <button class="page-number active">1</button>
+    <button class="page-number">2</button>
+    <button class="page-number">3</button>
+    <span class="page-ellipsis">...</span>
+    <button class="page-number">8</button>
+    <button class="page-number">9</button>
+    <button class="page-number">10</button>
+  </div>
+  <button class="pagination-button next">
+    Next
+    <svg viewBox="0 0 24 24" width="16" height="16">
+      <path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+    </svg>
+  </button>
+</div>
+</div>
+</v-card-text>
    </v-container>
 
-    <v-card-text class="pa-2">
-
-        <v-row align="center" justify="center mb-2">
-          <v-text-field
-            v-model="search"
-            density="compact"
-            variant="outlined"
-            placeholder="Search Employee by name, role, ID or any related keywords"
-            prepend-inner-icon="mdi-magnify"
-            hide-details
-            class="search-field"
-          >
-            <template v-slot:append-inner>
-  <v-btn variant="text" class="filter-btn text-capitalize text-black " style=" border: solid 1px #EAECF0 ; height: 30px;">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-  <path d="M5 10H15M2.5 5H17.5M7.5 15H12.5" stroke="#344054" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
-</svg> Filter
-              </v-btn>
-              <span class="red-dot"></span>
-              <v-btn icon class="icon-btn custom-icon" style="background-color: #efefef !important;"  elevation="0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-  <path d="M9 17.5H19M9 12.5H19M9 7.5H19M5.00195 17.5V17.502L5 17.502V17.5H5.00195ZM5.00195 12.5V12.502L5 12.502V12.5H5.00195ZM5.00195 7.5V7.502L5 7.50195V7.5H5.00195Z" stroke="#0E0E0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-              </v-btn>
-              <v-btn icon class="icon-btn custom-icon"  elevation="0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
-  <path d="M18.3333 7.60002V3.81669C18.3333 2.64169 17.8 2.16669 16.475 2.16669H13.1083C11.7833 2.16669 11.25 2.64169 11.25 3.81669V7.59169C11.25 8.77502 11.7833 9.24169 13.1083 9.24169H16.475C17.8 9.25002 18.3333 8.77502 18.3333 7.60002Z" stroke="#858585" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M18.3333 16.975V13.6083C18.3333 12.2833 17.8 11.75 16.475 11.75H13.1083C11.7833 11.75 11.25 12.2833 11.25 13.6083V16.975C11.25 18.3 11.7833 18.8333 13.1083 18.8333H16.475C17.8 18.8333 18.3333 18.3 18.3333 16.975Z" stroke="#858585" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M8.75008 7.60002V3.81669C8.75008 2.64169 8.21675 2.16669 6.89175 2.16669H3.52508C2.20008 2.16669 1.66675 2.64169 1.66675 3.81669V7.59169C1.66675 8.77502 2.20008 9.24169 3.52508 9.24169H6.89175C8.21675 9.25002 8.75008 8.77502 8.75008 7.60002Z" stroke="#858585" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M8.75008 16.975V13.6083C8.75008 12.2833 8.21675 11.75 6.89175 11.75H3.52508C2.20008 11.75 1.66675 12.2833 1.66675 13.6083V16.975C1.66675 18.3 2.20008 18.8333 3.52508 18.8333H6.89175C8.21675 18.8333 8.75008 18.3 8.75008 16.975Z" stroke="#858585" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-              </v-btn>
-            </template>
-          </v-text-field>
-        </v-row>
    
-
-      <div class="employees ">
-        <!-- Tab 1: All Employees -->
-        <div v-if="activeTab === 0" class="employee-table">
-          <!-- Table Header -->
-          <div class="table-header">
-            <div class="header-cell name-cell">
-              <v-checkbox
-  v-model="selectAll"
-  label="Name"
-  :indeterminate="isIndeterminate"
-  @change="toggleSelectAll"
-></v-checkbox>
-              </div>
-            <div class="header-cell id-cell">Employee ID</div>
-            <div class="header-cell role-cell">Role</div>
-            <div class="header-cell status-cell">Status</div>
-            <div class="header-cell teams-cell">Teams</div>
-            <div class="header-cell actions-cell"></div>
-          </div>
-
-          <!-- Table Rows -->
-          <div v-for="(employee, index) in filteredEmployees" :key="employee.id" class="table-row">
-            <!-- Name Cell -->
-            <div class="cell name-cell">
-              <v-checkbox
-  v-model="selectedEmployees"
-  :value="employee.id"
-  @change="updateSelectAll"
->
-  <template v-slot:label>
-    <div class="avatar" :style="{ backgroundColor: getAvatarColor(employee.name) }">
-      {{ getInitials(employee.name) }}
-    </div>
-  </template>
-</v-checkbox>
-              
-              <div class="employee-info">
-                <div class="employee-name">{{ employee.name }}</div>
-                <div class="employee-email">{{ employee.email }}</div>
-              </div>
-            </div>
-
-            <!-- ID Cell -->
-            <div class="cell id-cell">{{ employee.id }}</div>
-
-            <!-- Role Cell -->
-            <div class="cell role-cell">
-              <div class="role-title">{{ employee.role }}</div>
-              <div class="role-type">{{ employee.position }}</div>
-            </div>
-
-            <!-- Status Cell -->
-            <div class="cell status-cell">
-              <div class="status-badge" :class="employee.status === 'Active' ? 'active' : 'inactive'">
-                <span class="status-dot"></span>
-                {{ employee.status }}
-              </div>
-            </div>
-
-            <!-- Teams Cell -->
-            <div class="cell teams-cell">
-              <div class="teams-container">
-                <span 
-                  v-for="(team, teamIndex) in employee.teams" 
-                  :key="teamIndex" 
-                  class="team-badge"
-                  :class="`team-${team.toLowerCase()}`"
-                >
-                  {{ team }}
-                </span>
-                <span v-if="employee.level" class="level-badge">+{{ employee.level }}</span>
-              </div>
-            </div>
-
-            <!-- Actions Cell -->
-            <div class="cell actions-cell">
-              <button class="action-button">
-                <svg viewBox="0 0 24 24" width="18" height="18">
-                  <path fill="currentColor" d="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tab 2: Teams -->
-        <div v-if="activeTab === 1" class="employee-table">
-          <!-- Table Header -->
-          <div class="table-header">
-            <div class="header-cell name-cell">Team Name</div>
-            <div class="header-cell id-cell">Department</div>
-            <div class="header-cell role-cell">Team Lead</div>
-            <div class="header-cell status-cell">Status</div>
-            <div class="header-cell teams-cell">Members</div>
-            <div class="header-cell actions-cell"></div>
-          </div>
-
-          <!-- Table Rows -->
-          <div v-for="(team, index) in filteredTeams" :key="index" class="table-row">
-            <!-- Name Cell -->
-            <div class="cell name-cell">
-              <div class="avatar" :style="{ backgroundColor: getAvatarColor(team.name) }">
-                {{ getInitials(team.name) }}
-              </div>
-              <div class="employee-info">
-                <div class="employee-name">{{ team.name }}</div>
-                <div class="employee-email">{{ team.code }}</div>
-              </div>
-            </div>
-
-            <!-- Department Cell -->
-            <div class="cell id-cell">{{ team.department }}</div>
-
-            <!-- Team Lead Cell -->
-            <div class="cell role-cell">
-              <div class="role-title">{{ team.lead }}</div>
-              <div class="role-type">{{ team.leadTitle }}</div>
-            </div>
-
-            <!-- Status Cell -->
-            <div class="cell status-cell">
-              <div class="status-badge" :class="team.active ? 'active' : 'inactive'">
-                <span class="status-dot"></span>
-                {{ team.active ? 'Active' : 'Inactive' }}
-              </div>
-            </div>
-
-            <!-- Members Cell -->
-            <div class="cell teams-cell">
-              <div class="teams-container">
-                <span class="level-badge">{{ team.memberCount }} Members</span>
-              </div>
-            </div>
-
-            <!-- Actions Cell -->
-            <div class="cell actions-cell">
-              <button class="action-button">
-                <svg viewBox="0 0 24 24" width="18" height="18">
-                  <path fill="currentColor" d="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tab 3: Roles -->
-        <div v-if="activeTab === 2" class="employee-table">
-          <!-- Table Header -->
-          <div class="table-header">
-            <div class="header-cell name-cell">Role</div>
-            <div class="header-cell id-cell">Department</div>
-            <div class="header-cell role-cell">Level</div>
-            <div class="header-cell status-cell">Status</div>
-            <div class="header-cell teams-cell">Assigned</div>
-            <div class="header-cell actions-cell"></div>
-          </div>
-
-          <!-- Table Rows -->
-          <div v-for="(role, index) in filteredRoles" :key="index" class="table-row">
-            <!-- Role Name Cell -->
-            <div class="cell name-cell">
-              <div class="avatar" :style="{ backgroundColor: getAvatarColor(role.roleTitle) }">
-                {{ getInitials(role.roleTitle) }}
-              </div>
-              <div class="employee-info">
-                <div class="employee-name">{{ role.roleTitle }}</div>
-                <div class="employee-email">{{ role.code }}</div>
-              </div>
-            </div>
-
-            <!-- Department Cell -->
-            <div class="cell id-cell">{{ role.department }}</div>
-
-            <!-- Level Cell -->
-            <div class="cell role-cell">
-              <div class="role-title">Level {{ role.level }}</div>
-              <div class="role-type">{{ role.experienceRequired }}</div>
-            </div>
-
-            <!-- Status Cell -->
-            <div class="cell status-cell">
-              <div class="status-badge" :class="role.isActive ? 'active' : 'inactive'">
-                <span class="status-dot"></span>
-                {{ role.isActive ? 'Active' : 'Inactive' }}
-              </div>
-            </div>
-
-            <!-- Assigned Cell -->
-            <div class="cell teams-cell">
-              <div class="teams-container">
-                <span 
-                  v-for="(skill, skillIndex) in role.requiredSkills" 
-                  :key="skillIndex" 
-                  class="team-badge"
-                  :class="`team-${getSkillClass(skill)}`"
-                >
-                  {{ skill }}
-                </span>
-              </div>
-            </div>
-
-            <!-- Actions Cell -->
-            <div class="cell actions-cell">
-              <button class="action-button">
-                <svg viewBox="0 0 24 24" width="18" height="18">
-                  <path fill="currentColor" d="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Pagination -->
-        <div class="pagination">
-          <button class="pagination-button prev">
-            <svg viewBox="0 0 24 24" width="16" height="16">
-              <path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
-            </svg>
-            Previous
-          </button>
-          <div class="page-numbers">
-            <button class="page-number active">1</button>
-            <button class="page-number">2</button>
-            <button class="page-number">3</button>
-            <span class="page-ellipsis">...</span>
-            <button class="page-number">8</button>
-            <button class="page-number">9</button>
-            <button class="page-number">10</button>
-          </div>
-          <button class="pagination-button next">
-            Next
-            <svg viewBox="0 0 24 24" width="16" height="16">
-              <path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </v-card-text>
   </div>
 </template>
 
@@ -976,5 +980,14 @@ height: 20px;
 }
 .v-tab {
     padding: 10px 0 !important;
+}
+.under-line::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--gray-200);
 }
 </style>
