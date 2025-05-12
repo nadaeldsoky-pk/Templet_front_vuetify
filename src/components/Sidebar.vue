@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer color="#43235C" :model-value="drawer" :expand-on-hover="true"  
-  :rail="true"
+  :rail="true" 
     @update:model-value="$emit('update:drawer', $event)" app clipped width="280">
     <div class="bg-logo w-100">
       <v-img :src="logo" max-width="150" max-height="100" contain />
@@ -307,5 +307,8 @@ export default {
 }
 .v-navigation-drawer:hover .onhover{
   display: block;
+}
+.custom-drawer:hover :deep(.v-icon.mdi-magnify) {
+  color: #ffffff !important; 
 }
 </style>

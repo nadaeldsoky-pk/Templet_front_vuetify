@@ -98,7 +98,9 @@
          </v-card>
         </div>
        </div>
-   
+   <v-card class="pa-4">
+      <ckeditor :editor="editor" v-model="editorData" />
+    </v-card>
        <!-- Tabs -->
      <v-tabs v-model="tab" background-color="transparent" class="elevation-1" grow>
       <v-tab class="custom-tab rounded" :class="{ 'active-tab': tab === 0 }">
@@ -394,6 +396,12 @@ height: 30px !important;
 
 .text-error {
   color: #f44336;
+}
+.ck-editor__editable_inline {
+  min-height: 200px;
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 8px;
 }
 
   </style>

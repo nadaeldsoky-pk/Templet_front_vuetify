@@ -6,7 +6,8 @@
 
 
     <v-app-bar app clipped-left color="white" elevation="1">
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon> -->
+
     <BreadCrumb/>
     </v-app-bar>
 
