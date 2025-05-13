@@ -3,12 +3,15 @@
         <div class="d-flex align-center py-0 px-4">
       
           <!-- Breadcrumbs text -->
-         <v-breadcrumbs :items="items">
+        <div style="width: 65%;">
+           <v-breadcrumbs :items="items">
             <template v-slot:prepend>
             </template>
           </v-breadcrumbs>
-          <v-spacer></v-spacer>
-          
+        </div>
+     
+         <div class="d-flex justif-space-between align-center">
+           
           <!-- Search field -->
           <v-text-field
   prepend-inner-icon="mdi-magnify"
@@ -28,6 +31,7 @@
             <v-icon>mdi-bell-outline</v-icon>
              
           </v-btn>
+         </div>
         </div>
     </v-app>
   </template>

@@ -1,9 +1,7 @@
 <template>
   <!-- 280px -->
   <v-navigation-drawer color="#43235C" app clipped >
-    <div class="bg-logo w-100">
-      <v-img :src="logo" max-width="150" max-height="100" contain />
-    </div>
+  
 
     <!-- User Info -->
     <div class="px-3 py-2 d-flex align-center">
@@ -15,7 +13,7 @@
 
     <!-- Search -->
     <v-text-field prepend-inner-icon="mdi-magnify" hide-details variant="outlined" density="compact"
-      placeholder="Search..." class="w-100 pl-2 pr-3" bg-color="grey-lighten-4">
+      placeholder="Search..." class="w-100 pl-1 pr-3 text-search custom-search-icon" bg-color="grey-lighten-4">
       <template v-slot:append-inner>
         <span class="text-caption grey--text" style="color: #0000001A;">⌘/</span>
       </template>
@@ -302,6 +300,7 @@ export default {
   name: "Sidebar",
   data: () => ({
     logo,
+       drawerWidth: 65,
   }),
 };
 </script>
@@ -351,15 +350,4 @@ export default {
   min-height: 24px !important;
 }
 
-/* .onhover {
-  display: none;
-}
-
-.v-navigation-drawer:hover .onhover {
-  display: block;
-} */
-
-.custom-drawer:hover :deep(.v-icon.mdi-magnify) {
-  color: #ffffff !important;
-}
 </style>

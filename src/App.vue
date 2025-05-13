@@ -1,11 +1,12 @@
 <!-- src/App.vue -->
 <template>
   <v-app>
-    <Sidebar  v-model:drawer="drawer" :style="{ width: drawerWidth + 'px' }"/>
-    <!-- <BreadCrumb  v-model:drawer="drawer" /> -->
+      <div class="bg-logo w-100 position-fixed top-0">
+      <v-img :src="logo" max-width="150" max-height="100" contain />
+    </div>
 
 
-    <v-app-bar app clipped-left color="white" elevation="1">
+  <v-app-bar app :style="{ left: drawerWidth + 'px' }" clipped-left color="white" elevation="1">
       <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon> -->
             <div class="ml-6" @click="toggleDrawerWidth">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -14,10 +15,11 @@
 </svg>
       </div>
 
-    <BreadCrumb :drawer-width="drawerWidth" />
+    <BreadCrumb />
     </v-app-bar>
 
     <v-main :style="{ paddingLeft: drawerWidth + 'px' }">
+    <Sidebar  v-model:drawer="drawer" :style="{ width: drawerWidth + 'px' }"/>
       <v-container fluid>
         <transition name="fade" mode="out-in">
           <router-view></router-view>
@@ -36,11 +38,12 @@
 <script>
 import Sidebar from "@/components/Sidebar.vue";
 import BreadCrumb from "@/components/BreadCrumb.vue";
-
+import logo from "@/assets/logo.png";
 export default {
   name: "App",
     data() {
     return {
+        logo,
       drawerWidth: 56, 
     };
   },
@@ -57,7 +60,8 @@ export default {
 
 </script>
 
-<style>
+<style >
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease;

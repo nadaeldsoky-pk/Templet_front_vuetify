@@ -75,6 +75,12 @@
   --black-164: rgba(0, 0, 0, 0.62); 
   --black-189: rgba(0, 0, 0, 0.74); 
 }
+.custom-search-icon .bg-grey-lighten-4 {
+    background-color: transparent !important;
+}
+.custom-search-icon .v-field__prepend-inner i.mdi-magnify {
+    color: var(--white) !important;
+}
 /*start system details  */
 .details-card{
   border-bottom:4px solid #000CE9;
