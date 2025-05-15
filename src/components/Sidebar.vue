@@ -20,13 +20,13 @@
     </v-text-field>
 
     <v-list nav>
-      <p class="pl-2 d-none">Dashboard</p>
+      <p v-if="width === 280" class="pl-2">Dashboard</p>
 
    <div v-if="width === 280">
       <v-expansion-panels flat>
         <v-expansion-panel>
           <v-expansion-panel-title>
-            <v-list-item-icon class="px-3">
+            <v-list-item-icon class="pr-3">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path
                   d="M3.14993 13.65C3.04767 13.106 2.99741 12.5535 2.99997 12C2.99878 10.1386 3.57529 8.32288 4.65002 6.80319C5.72476 5.28342 7.24463 4.1348 8.99997 3.51562V10.2656L3.14993 13.65Z"
@@ -82,11 +82,11 @@
     <!-- Collapsed view - shown when drawer width is 56 -->
     <v-list   v-else>
       <v-menu 
-        open-on-hover
-      
-        offset="5"
-        min-width="250"
-        :close-on-content-click="false"
+       :open-on-hover="false"
+    offset="5"
+    min-width="250"
+    :close-on-content-click="false"
+    v-model="defaultMenuOpen"
       >
         <template v-slot:activator="{ props }">
           <v-list-item class="list-menu" v-bind="props">
@@ -166,11 +166,12 @@
       </v-menu>
     </v-list>
       <!-- eCommerce Section -->
+          <div v-if="width === 280">
       <v-expansion-panels flat>
         <v-expansion-panel>
           <v-expansion-panel-title>
             <v-list-item-icon class="pr-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path
                   d="M3 7.5H21V5.25C21 5.05115 20.921 4.86035 20.7803 4.71973C20.6397 4.5791 20.4489 4.5 20.25 4.5H3.75C3.55109 4.5 3.36032 4.5791 3.21967 4.71973C3.07902 4.86035 3 5.05115 3 5.25V7.5Z"
                   fill="black" fill-opacity="0.1" />
@@ -189,19 +190,80 @@
           </v-expansion-panel-title>
           <v-expansion-panel-text>
             <v-list>
+
               <v-list-item to="/ecommerce" :class="{ 'active-item': $route.path === '/ecommerce' }">
-                <v-list-item-title>eCommerce</v-list-item-title>
+                <v-list-item-title>ecommerce</v-list-item-title>
               </v-list-item>
               <v-list-item to="/products" :class="{ 'active-item': $route.path === '/products' }">
-                <v-list-item-title>Products</v-list-item-title>
+                <v-list-item-title>products</v-list-item-title>
               </v-list-item>
             </v-list>
           </v-expansion-panel-text>
         </v-expansion-panel>
       </v-expansion-panels>
+    </div>
+
+    <!-- Collapsed view - shown when drawer width is 56 -->
+    <v-list   v-else>
+      <v-menu 
+       :open-on-hover="false"
+    offset="5"
+    min-width="250"
+    :close-on-content-click="false"
+    v-model="ecommerceMenuOpen"
+      >
+        <template v-slot:activator="{ props }">
+          <v-list-item class="list-menu" v-bind="props">
+            <template v-slot:prepend>
+              <div class="d-flex align-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M3 7.5H21V5.25C21 5.05115 20.921 4.86035 20.7803 4.71973C20.6397 4.5791 20.4489 4.5 20.25 4.5H3.75C3.55109 4.5 3.36032 4.5791 3.21967 4.71973C3.07902 4.86035 3 5.05115 3 5.25V7.5Z"
+                  fill="black" fill-opacity="0.1" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M2.25 5.25C2.25 5.25 2.25 4.62868 2.68934 4.18934C2.68934 4.18934 3.12868 3.75 3.75 3.75H20.25C20.25 3.75 20.8713 3.75 21.3107 4.18934C21.3107 4.18934 21.75 4.62868 21.75 5.25V18.75C21.75 18.75 21.75 19.3713 21.3107 19.8107C21.3107 19.8107 20.8713 20.25 20.25 20.25H3.75C3.75 20.25 3.12868 20.25 2.68934 19.8107C2.68934 19.8107 2.25 19.3713 2.25 18.75V5.25ZM3.75 5.25V18.75H20.25V5.25H3.75Z"
+                  fill="#ECECEC" />
+                <path
+                  d="M3 8.25H21C21.4142 8.25 21.75 7.91421 21.75 7.5C21.75 7.08579 21.4142 6.75 21 6.75H3C2.58579 6.75 2.25 7.08579 2.25 7.5C2.25 7.91421 2.58579 8.25 3 8.25Z"
+                  fill="#ECECEC" />
+                <path
+                  d="M9.87868 12.6213C9 11.7426 9 10.5 9 10.5C9 10.0858 8.66421 9.75 8.25 9.75C7.83579 9.75 7.5 10.0858 7.5 10.5C7.5 12.364 8.81802 13.682 8.81802 13.682C10.136 15 12 15 12 15C13.864 15 15.182 13.682 15.182 13.682C16.5 12.364 16.5 10.5 16.5 10.5C16.5 10.0858 16.1642 9.75 15.75 9.75C15.3358 9.75 15 10.0858 15 10.5C15 11.7426 14.1213 12.6213 14.1213 12.6213C13.2426 13.5 12 13.5 12 13.5C10.7574 13.5 9.87868 12.6213 9.87868 12.6213Z"
+                  fill="#ECECEC" />
+              </svg>
+              </div>
+            </template>
+            <template v-slot:append>
+              <v-icon>mdi-chevron-right</v-icon>
+            </template>
+          </v-list-item>
+        </template>
+        
+        <!-- Default menu contents - appears outside sidebar -->
+        <v-card elevation="4" width="280">
+          <v-list>
+
+            <!-- Regular menu items -->
+            <v-list-item to="/ecommerce" :class="{ 'active-item': $route.path === '/ecommerce' }">
+              <template v-slot:prepend>
+                <v-icon>mdi-account-group</v-icon>
+              </template>
+              <v-list-item-title>ecommerce</v-list-item-title>
+            </v-list-item>
+            
+            <v-list-item to="/products" :class="{ 'active-item': $route.path === '/products' }">
+              <template v-slot:prepend>
+                <v-icon>mdi-key</v-icon>
+              </template>
+              <v-list-item-title>products</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-card>
+      </v-menu>
+    </v-list>
+   
 
       <!-- Other Pages -->
-      <p class="pl-2 d-none" @click="toggleDrawerWidth">Pages</p>
+      <p class="pl-2"v-if="width === 280">Pages</p>
       <v-list-item to="/projects" :class="{ 'active-item': $route.path === '/projects' }">
         <div class="d-flex align-center ">
           <div class="mr-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -387,6 +449,10 @@ export default {
   name: "Sidebar",
   data: () => ({
     logo,
+       menuOpen: false,
+      width: 56,
+    defaultMenuOpen: false,
+    ecommerceMenuOpen: false
   }),
    props: {
     width: {
@@ -399,6 +465,14 @@ export default {
     }
   },
   emits: ['update:drawer'],
+   methods: {
+ toggleDefaultMenu() {
+    this.defaultMenuOpen = !this.defaultMenuOpen;
+  },
+  toggleEcommerceMenu() {
+    this.ecommerceMenuOpen = !this.ecommerceMenuOpen;
+  }
+  }
 };
 </script>
 
@@ -416,8 +490,8 @@ export default {
   border-radius: 8px !important;
   padding: 5px 10px !important;
   margin: 5px 0 !important;
-  background-color: var(--white) !important;
-  color: var(--pressed-purple) !important;
+  background-color: #5a3e70 !important;
+  color: var(--white) !important;
 }
 
 .active-item .v-list-item-title {
@@ -446,6 +520,15 @@ export default {
   min-height: 24px !important;
 }
 .v-list-item--density-default:not(.v-list-item--nav).v-list-item--one-line {
-    padding: 0px  8px !important;
+    padding: 4px  8px !important;
+}
+.v-overlay__content{
+left: 56px !important;
+}
+.v-list {
+    padding: 0px 4px !important;
+}
+.v-list-item--nav {
+    padding-inline: 12px !important;
 }
 </style>
