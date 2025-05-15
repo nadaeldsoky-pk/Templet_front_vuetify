@@ -445,5 +445,7 @@ export default {
 .v-list-item--density-default.v-list-item--one-line {
   min-height: 24px !important;
 }
-
+.v-list-item--density-default:not(.v-list-item--nav).v-list-item--one-line {
+    padding: 0px  8px !important;
+}
 </style>
