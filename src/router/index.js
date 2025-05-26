@@ -208,6 +208,15 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "ticket-system-create" */ "../views/TicketSystemCreate.vue"),
   },
+  {
+    path: "/requests-cards",
+    name: "Requests Cards",
+    // route level code-splitting
+    // this generates a separate chunk (requests-cards.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "requests-cards" */ "../views/RequestsCards.vue"),
+  },
 ];
 
 const router = createRouter({
