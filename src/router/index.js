@@ -217,6 +217,15 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "requests-cards" */ "../views/RequestsCards.vue"),
   },
+  {
+    path: "/learning-center",
+    name: "Learning Center",
+    // route level code-splitting
+    // this generates a separate chunk (learning-center.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "learning-center" */ "../views/LearningCenter.vue"),
+  },
 ];
 
 const router = createRouter({
