@@ -3,7 +3,7 @@
         <v-row>
             <v-col cols="6" class="bg-col">
                 <v-expansion-panels v-model="activePanels" multiple class="custom-panel" hide-actions>
-                    <v-expansion-panel :value="'custom-panel'">
+                    <v-expansion-panel class="pa-4" :value="'custom-panel'">
                         <template #title>
                             <div class="d-flex justify-space-between align-center w-100" @click.stop>
                                 <!-- Title & tags -->
@@ -24,7 +24,7 @@
                                     <div class="d-flex flex-wrap mt-1">
                                         <div v-for="(tag, i) in tags" :key="i"
                                             class="tag-item d-flex align-center me-2">
-                                            <span class="text-caption">{{ tag }}</span>
+                                            <span class="font-weight-bold  text-black" color="#000">{{ tag }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -38,16 +38,12 @@
                                     <v-expansion-panel-title
                                         v-slot="{ expanded }"
                                         class="pa-2 border rounded border-levels"
-                                        :class="expanded ? 'panel-open' : 'panel-closed'"
-                                        :style="expanded ? 'background-color: transparent !important;' : ''"
-                                    >
+                                        :class="expanded ? 'panel-open' : 'panel-closed'">
                                         <div class="w-100">
-                                            <!-- العنوان + الأيقونة -->
                                             <div class="d-flex justify-space-between align-center">
                                                 <p 
                                                     class="mb-2 title-course" 
                                                     :class="expanded ? 'title-open' : 'title-closed'"
-                                                    :style="expanded ? 'color: #44225A;' : 'color: #000;'"
                                                 >
                                                     Level one - Basic compliance training
                                                 </p>
@@ -144,14 +140,30 @@
                                                                 Last updated: {{ card.lastUpdated }}
                                                             </div>
 
-                                                           <div class="d-flex align-center justify-space-between">
-                                                             <v-chip color="#C30C0C" text-color="#C30C0C" class="mt-3 font-weight-bold">
-                                                                Mandatory
-                                                            </v-chip>
-                                                            <v-btn color="#44225A" variant="flat">
-                                                                Start Learning
-                                                            </v-btn>
-                                                           </div>
+                                                            <div class="d-flex align-center justify-space-between">
+                                                                <!-- إظهار Mandatory فقط إذا لم تكن passed -->
+                                                                <v-chip 
+                                                                    v-if="!card.isPassed" 
+                                                                    color="#C30C0C" 
+                                                                    text-color="#C30C0C" 
+                                                                    class="mt-3 px-2 font-weight-bold">
+                                                                    Mandatory
+                                                                </v-chip>
+                                                                
+                                                                <!-- إظهار Passed فقط إذا كانت passed -->
+                                                                <v-chip 
+                                                                    v-if="card.isPassed" 
+                                                                    color="#1a932e" 
+                                                                    text-color="#1a932e" 
+                                                                    class="mt-3 px-2 font-weight-bold" 
+                                                                    style="text-decoration: line-through;">
+                                                                    Passed
+                                                                </v-chip>
+                                                                
+                                                                <v-btn color="#44225A" variant="flat">
+                                                                    Start Learning
+                                                                </v-btn>
+                                                            </div>
                                                         </v-card-text>
                                                     </v-card>
                                                 </v-col>
@@ -201,6 +213,7 @@ const cards = [
         statements: 30,
         dueDate: '06 Jul 2024',
         lastUpdated: '27 Jan 2024',
+        isPassed: false 
     },
     {
         title: 'Understand phishing techniques',
@@ -209,6 +222,7 @@ const cards = [
         statements: 24,
         dueDate: '12 Jul 2024',
         lastUpdated: '01 Feb 2024',
+        isPassed: true 
     }
 ]
 </script>
@@ -261,20 +275,18 @@ border:2px solid var(--main-purple) !important;
 .history{
     font-size:12px
 }
-.panel-open {
-  background-color: transparent !important;
-}
-
 .panel-closed {
-  background-color: white !important;
+  background-color: white ;
 }
-
+.panel-open {
+  background-color: #f9f1ff !important;
+}
 .title-open {
   color: #44225A !important;
 }
 
 .title-closed {
-  color: #000000 !important;
+  color: #c3c3c3 !important;
 }
 .course-card{
 border-radius: 24px !important;
